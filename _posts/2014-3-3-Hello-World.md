@@ -1,10 +1,9 @@
 ---
 layout: post
-title: You're up and running!
+title: First Week of Metis Data Science Bootcamp
 ---
+I was glad to find that I knew more than I thought! The courses I took through UCSD (https://extension.ucsd.edu/courses-and-programs/data-science-courses), working through the ThinkStats curriculum (http://greenteapress.com/thinkstats/), and Michael Kennedy's Talk Python To Me Podcasts (https://talkpython.fm/) really helped.
 
-Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
+That being said, I still have a lot more work to do getting comfortable with using Pandas cleverly instead of just making for loops and dictionaries by hand.
 
-![_config.yml]({{ site.baseurl }}/images/config.png)
-
-The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the [Jekyll Now repository](https://github.com/barryclark/jekyll-now) on GitHub.
+Also, I still suck at Git. 
