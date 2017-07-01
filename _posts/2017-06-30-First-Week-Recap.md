@@ -6,13 +6,13 @@ Title: First Week Recap of Metis Data Science Bootcamp
 ## General Thoughts
 Although the first week of the bootcamp was fast paced, I was pleasantly surprised to find that I knew more than I thought! This comfort was due to significant studying that I did independently in preparation for the bootcamp. In particular, I used the following resources that I highly recommend:
 
-* I took Python & data science courses through the [UCSD Advanced Analytics program](https://extension.ucsd.edu/courses-and-programs/data-science-courses)
-
-* I worked through the [ThinkStats curriculum](http://greenteapress.com/thinkstats/) that included an introduction to Pandas.
+* I took Python & data science courses through the [UCSD Advanced Analytics program](https://extension.ucsd.edu/courses-and-programs/data-mining-for-advanced-analytics).
+ 
+* I worked through the [ThinkStats](http://greenteapress.com/thinkstats/) curriculum that included an introduction to Pandas.
 
 * I worked through [Jake Vanderplas' Data Science Handbook](https://github.com/jakevdp/PythonDataScienceHandbook) Jupyter Notebook modules.
 
-* I listened to Michael Kennedy's [Talk Python To Me Podcasts](https://talkpython.fm/) on the way home from work each day all really helped. 
+* I listened to Michael Kennedy's [Talk Python To Me Podcasts](https://talkpython.fm/) on the way home from work each day.
 
 That being said, not all of the first week's curriculum came easily. In particular, while I was already comfortable using Matplotlib and NumPy, Pandas was much harder to gain an intuitive sense for beyond just the basic operations.  I still have a long way to go in getting comfortable with using Pandas cleverly instead of just making for loops and dictionaries by hand. Also, I still suck at Git.
 
@@ -50,7 +50,7 @@ I was interested in placing advertisers in stations that were business districts
 9. FULTON ST
 10. CHAMBERS ST
 
-Not surprisingly, though, three of the top ten highest volume destinations on weekday mornings were in the financial district, which is not where many tech companies are located. I used the Google Maps API to superimpose the largest tech employers depicted with black circles (according to [Built in NYC](http://www.builtinnyc.com/2016/10/28/nyc-top-100-list) with these ten station recommendations, and found that there were no subway recommendations currently near Twitter, Google, or Facebook. Thus, I suggested moving two of these financial district stations to be close to the Twitter/Google and Facebook locations (circled) and my final top ten recommendations as to where to station advertisers on weekday mornings are:
+Not surprisingly, though, three of the top ten highest volume destinations on weekday mornings were in the financial district, which is not where many tech companies are located. I used the Google Maps API to superimpose the largest tech employers depicted with black circles (according to [Built in NYC](http://www.builtinnyc.com/2016/10/28/nyc-top-100-list)) with these ten station recommendations, and found that there were no subway recommendations currently near Twitter, Google, or Facebook. Thus, I suggested moving two of these financial district stations to be close to the Twitter/Google and Facebook locations (circled) and my final top ten recommendations as to where to station advertisers on weekday mornings were:
 
 1. 47-50 STS ROCK
 2. GRD CENTRAL-42 ST
