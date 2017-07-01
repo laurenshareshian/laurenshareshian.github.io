@@ -53,15 +53,14 @@ I was interested in placing advertisers in stations that were business districts
 9. FULTON ST
 10. CHAMBERS ST
 
-![Station-Map2](/images/benson2.png)
 
-
-Not surprisingly, though, three of the top ten highest volume destinations on weekday mornings were in the financial district, which is not where many tech companies are located. I used the Google Maps API to superimpose the largest tech employers depicted with black circles (according to [Built in NYC](http://www.builtinnyc.com/2016/10/28/nyc-top-100-list)) with these ten station recommendations, and found that there were no subway recommendations currently near Twitter, Google, or Facebook. Thus, I suggested moving two of these financial district stations to be close to the Twitter/Google and Facebook locations (circled):
+Not surprisingly, though, three of the top ten highest volume destinations on weekday mornings were in the financial district, which is not where many tech companies are located. I used the Google Maps API to superimpose the largest tech employers depicted with black circles (according to [Built in NYC](http://www.builtinnyc.com/2016/10/28/nyc-top-100-list)) with these ten station recommendations, and found that there were no subway recommendations currently near Twitter, Google, or Facebook (circled in gray). Thus, I suggested moving two of the advertisers from the financial district to the Astor Place and 18th St stations in order to be closer to the Twitter/Google and Facebook locations:
 
 ![Station-Map3](/images/benson3.png)
 
 
 Thus, my final top ten recommendations as to where to station advertisers on weekday mornings were:
+
 1. 47-50 STS ROCK
 2. GRD CENTRAL-42 ST
 3. 34 ST-HERALD SQ
