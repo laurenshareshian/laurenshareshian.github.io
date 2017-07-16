@@ -50,6 +50,9 @@ Depth Chart. This information was a bit harder to come by, as I needed archived 
 Unfortunately, this didn’t help our model either.
 
 
+The previous year’s fantasy performance. I found the previous year’s fantasy points [here](https://www.pro-football-reference.com/years/2015/fantasy.htm). Unfortunately, ESPN doesn’t archive their data, so I needed to use a different website, but I figured that the point comparisons were similar. This data would obviously not include rookies for the next year, but I still thought it would improve my model significantly. Unfortunately, once again, it didn’t improve our adjusted test R^2.
+
+
 In summary, by using ESPN’s rankings plus position, we improve upon ESPN’s point predictions by double. In order to improve the model further, I’d like to include injury information and perhaps utilize Twitter to measure how each player is trending. 
 
 
