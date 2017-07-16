@@ -37,7 +37,7 @@ Team. Upon first glance, it seemed like what team a player was on might have an 
 
 Unfortunately, adding team to the feature matrix did not increase my adjusted R^2 on my testing data.
 
-College. I postulated that perhaps what college a player attended might affect his points. I wasn’t quite sure how to classify colleges so I did it two different ways: in my first analysis, I looked at which college teams historically had won the most [championships since 1936](https://en.wikipedia.org/wiki/College_football_national_championships_in_NCAA_Division_I_FBS). However, I figured that perhaps how many championships that a college won in the 1970s or 1980s might not really have an effect on how a player was doing today. So alternatively, I considered how many of the top 300 current players according to EPSN were from each college. Top schools measured in each way are located here:
+College. I postulated that perhaps what college a player attended might affect his points. I wasn’t quite sure how to classify colleges so I did it two different ways: in my first analysis, I looked at which college teams historically had won the most [championships since 1936](https://en.wikipedia.org/wiki/College_football_national_championships_in_NCAA_Division_I_FBS). However, I figured that how many championships a college won in the 1970s or 1980s might not really have an effect on how a player was doing today. So alternatively, I considered how many of the top 300 current players according to EPSN were from each college. Top schools measured in each way are located here:
 
 <img src="/images/schools1.png" width="300"/> <img src="/images/schools2.png" width="350"/> 
 
@@ -53,5 +53,5 @@ Unfortunately, this didn’t help our model either.
 In summary, by using ESPN’s rankings plus position, we improve upon ESPN’s point predictions by double. In order to improve the model further, I’d like to include injury information and perhaps utilize Twitter to measure how each player is trending. 
 
 
-For this project, I used BeautifulSoup and Pandas’ read_html function to scrape the web. I used skikit-learn to build a pipeline that performed normalization of features, polynomial regression, and cross validation. I also used the package Fuzzy Wuzzy to match names like “Robert Griffin” and “Robert Griffin III” in order to merge my datasets.
+For this project, I used BeautifulSoup and Pandas’ read_html function to scrape the web. I used skikit-learn to build a pipeline that performed normalization of features, polynomial regression, and cross validation. I also used the package Fuzzy Wuzzy to match names like “Robert Griffin” and “Robert Griffin III” in order to merge my datasets. You can find my GitHub repo for this project here. 
 
