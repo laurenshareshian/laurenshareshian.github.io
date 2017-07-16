@@ -7,7 +7,7 @@ Our second project at Metis involved using scikit-learn and regression models in
 
 
 
-<img src=“/images/espn.png” width=“300”/> <img src=“/images/actualleaders.png” width=“300”/> 
+<img src="/images/espn.png" width="300"/> <img src="/images/actualleaders.png" width="300"/> 
 
 As we can see, ESPN erroneously predicted Adrian Peterson to be the third highest fantasy scorer, and totally underestimated how well quarterbacks like Aaron Rodgers and Matt Ryan would do. Who were the most under and overestimated players using ESPN’s rankings? Let’s view those below by sorting the residuals:
 
