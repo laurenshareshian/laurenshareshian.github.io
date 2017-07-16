@@ -39,13 +39,13 @@ Unfortunately, adding team to the feature matrix did not increase my adjusted R^
 
 3.College. I postulated that perhaps what college a player attended might affect his points. I wasn’t quite sure how to classify colleges so I did it two different ways: in my first analysis, I looked at which college teams historically had won the most [championships since 1936](https://en.wikipedia.org/wiki/College_football_national_championships_in_NCAA_Division_I_FBS). However, I figured that perhaps how many championships that a college won in the 1970s or 1980s might not really have an effect on how a player was doing today. So alternatively, I considered how many of the top 300 current players according to EPSN were from each college. Top schools measured in each way are located here:
 
-![schools1](/images/school1.png) ![schools2](/images/schools2.png)
+![schools1](/images/school1.png =100x) ![schools2](/images/schools2.png =100x)
 
 Unfortunately, neither measure of college increased our adjusted R^2 on the testing data.
 
 4.Depth Chart. This information was a bit harder to come by, as I needed archived depth charts from the previous year. But luckily, someone from the internet had previously compiled this info and posted it on [Reddit](https://www.reddit.com/r/nfl/comments/4n2uzj/2016_nfl_depth_charts_all_teams_all_positions/). Thank you, random internet dude! He carefully listed each team’s depth chart. For example, here were the Seahawks running backs:
 
-![depth](/images/depth.png)
+![depth](/images/depth.png =100x)
 
 Unfortunately, this didn’t help our model either.
 
