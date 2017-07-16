@@ -33,13 +33,13 @@ Woohoo! Adding our first additional feature worked. As we add more features, weâ
 2. Team. Upon first glance, it seemed like what team a player was on might have an effect, as the correlation coefficients for certain teams (such as New Orleans) suggested a favorable effect on points, and teams such as poor San Francisco suggested a negative effect:
 
 
-![goodteams](/images/goodteams.png) ![badteams](/images/badteams.png)
+<img src="/images/badteams.png" width="300"/> <img src="/images/goodteams.png" width="300"/> 
 
 Unfortunately, adding team to the feature matrix did not increase my adjusted R^2 on my testing data.
 
 3.College. I postulated that perhaps what college a player attended might affect his points. I wasnâ€™t quite sure how to classify colleges so I did it two different ways: in my first analysis, I looked at which college teams historically had won the most [championships since 1936](https://en.wikipedia.org/wiki/College_football_national_championships_in_NCAA_Division_I_FBS). However, I figured that perhaps how many championships that a college won in the 1970s or 1980s might not really have an effect on how a player was doing today. So alternatively, I considered how many of the top 300 current players according to EPSN were from each college. Top schools measured in each way are located here:
 
-![schools1](/images/school1.png =100x) ![schools2](/images/schools2.png =100x)
+<img src="/images/schools1.png" width="300"/> <img src="/images/schools2.png" width="300"/> 
 
 Unfortunately, neither measure of college increased our adjusted R^2 on the testing data.
 
