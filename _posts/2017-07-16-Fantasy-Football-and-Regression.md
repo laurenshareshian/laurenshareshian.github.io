@@ -5,11 +5,13 @@ Title: Predicting Fantasy Football Leaders using Linear Regression
 
 Our second project at Metis involved using scikit-learn and regression models in order to analyze a data set of our choosing. I chose to analyze fantasy football performance, of course, as I wanted to improve my chances of slaughtering my fantasy opponents this season. Each pre-season, ESPN puts out projected rankings of how each player will perform. In September of 2016, ESPN released the [top 300 player rankings](http://www.espn.com/fantasy/football/story/_/id/16287927/2016-fantasy-football-rankings-top-300). You can view the top 10 projected players according to ESPN and the top 10 actual fantasy leaders for the 2016 season below:
 
-![espn](/images/espn.png) ![actualleaders](images/actualleaders.png)
+
+
+<img src="/images/espn.png" width="425"/> <img src="/images/actualleaders.png" width="425"/> 
 
 As we can see, ESPN erroneously predicted Adrian Peterson to be the third highest fantasy scorer, and totally underestimated how well quarterbacks like Aaron Rodgers and Matt Ryan would do. Who were the most under and overestimated players using ESPN’s rankings? Let’s view those below by sorting the residuals:
 
-![under](/images/under.png =30x20) ![over](images/over.png =30x20)
+![under](/images/under.png =30x20) ![over](/images/over.png =30x20)
 
 
 How much accuracy can you get by just using ESPN’s projected rankings to estimate how many fantasy points a player will score? Well, using RidgeCV with linear regression, normalization, and five fold cross-validation, we obtain a 26.6% adjusted R^2 on the training set and a 15.7% on the testing set. I will use the adjusted R^2 of 15.7% on my testing set as a benchmark as I add more features to the model. 
@@ -31,13 +33,13 @@ Woohoo! Adding our first additional feature worked. As we add more features, we�
 * 2. Team. Upon first glance, it seemed like what team a player was on might have an effect, as the correlation coefficients for certain teams (such as New Orleans) suggested a favorable effect on points, and teams such as poor San Francisco suggested a negative effect:
 
 
-![goodteams](/images/goodteams.png) ![badteams](images/badteams.png)
+![goodteams](/images/goodteams.png) ![badteams](/images/badteams.png)
 
 Unfortunately, adding team to the feature matrix did not increase my adjusted R^2 on my testing data.
 
-* 3.College. I postulated that perhaps what college a player attended might affect his points. I wasn’t quite sure how to classify colleges so I did it two different ways: In my first analysis, I looked at which college teams historically had won the most [championships since 1936.](https://en.wikipedia.org/wiki/College_football_national_championships_in_NCAA_Division_I_FBS). However, I figured that perhaps how many championships that a college won in the 1970s or 1980s might not really have an effect on how a player was doing today. So alternatively, I considered how many of the top 300 current players according to EPSN were from each college. Top schools measured in each way are located here:
+* 3.College. I postulated that perhaps what college a player attended might affect his points. I wasn’t quite sure how to classify colleges so I did it two different ways: in my first analysis, I looked at which college teams historically had won the most [championships since 1936](https://en.wikipedia.org/wiki/College_football_national_championships_in_NCAA_Division_I_FBS). However, I figured that perhaps how many championships that a college won in the 1970s or 1980s might not really have an effect on how a player was doing today. So alternatively, I considered how many of the top 300 current players according to EPSN were from each college. Top schools measured in each way are located here:
 
-![schools1](/images/school1.png) ![schools2](images/schools2.png)
+![schools1](/images/school1.png) ![schools2](/images/schools2.png)
 
 Unfortunately, neither measure of college increased our adjusted R^2 on the testing data.
 
