@@ -9,12 +9,12 @@ Our second project at Metis involved using scikit-learn and regression models in
 
 As we can see, ESPN erroneously predicted Adrian Peterson to be the third highest fantasy scorer, and totally underestimated how well quarterbacks like Aaron Rodgers and Matt Ryan would do. Who were the most under and overestimated players using ESPN’s rankings? Let’s view those below by sorting the residuals:
 
-![under](/images/under.png) ![over](images/over.png)
+![under](/images/under.png =300x200) ![over](images/over.png =300x200)
 
 
 How much accuracy can you get by just using ESPN’s projected rankings to estimate how many fantasy points a player will score? Well, using RidgeCV with linear regression, normalization, and five fold cross-validation, we obtain a 26.6% adjusted R^2 on the training set and a 15.7% on the testing set. I will use the adjusted R^2 of 15.7% on my testing set as a benchmark as I add more features to the model. 
 
-What other features should we add? Well, as you can see from the plot below, position seems to play a huge role. The quarterbacks plotted in blue tend to score more than the average player. 
+What other features should we add? As you can see from the plot below, position seems to play a huge role. The quarterbacks plotted in blue tend to score more than the average player. 
 
 ![positions](/images/positions.png)
 
