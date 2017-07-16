@@ -7,7 +7,7 @@ Our second project at Metis involved using scikit-learn and regression models in
 
 
 
-<img src="/images/espn.png" width="350"/> <img src="/images/actualleaders.png" width=“350”/> 
+<img src="/images/espn.png" width="350"/> <img src="/images/actualleaders.png" width="350"/> 
 
 As we can see, ESPN erroneously predicted Adrian Peterson to be the third highest fantasy scorer, and totally underestimated how well quarterbacks like Aaron Rodgers and Matt Ryan would do. Who were the most under and overestimated players using ESPN’s rankings? Let’s view those below by sorting the residuals:
 
@@ -39,13 +39,13 @@ Unfortunately, adding team to the feature matrix did not increase my adjusted R^
 
 College. I postulated that perhaps what college a player attended might affect his points. I wasn’t quite sure how to classify colleges so I did it two different ways: in my first analysis, I looked at which college teams historically had won the most [championships since 1936](https://en.wikipedia.org/wiki/College_football_national_championships_in_NCAA_Division_I_FBS). However, I figured that perhaps how many championships that a college won in the 1970s or 1980s might not really have an effect on how a player was doing today. So alternatively, I considered how many of the top 300 current players according to EPSN were from each college. Top schools measured in each way are located here:
 
-<img src="/images/schools1.png" width="300"/> <img src="/images/schools2.png" width="300"/> 
+<img src="/images/schools1.png" width="300"/> <img src="/images/schools2.png" width="350"/> 
 
 Unfortunately, neither measure of college increased our adjusted R^2 on the testing data.
 
 Depth Chart. This information was a bit harder to come by, as I needed archived depth charts from the previous year. But luckily, someone from the internet had previously compiled this info and posted it on [Reddit](https://www.reddit.com/r/nfl/comments/4n2uzj/2016_nfl_depth_charts_all_teams_all_positions/). Thank you, random internet dude! He carefully listed each team’s depth chart. For example, here were the Seahawks running backs:
 
-![depth](/images/depth.png =100x)
+![depth](/images/depth.png)
 
 Unfortunately, this didn’t help our model either.
 
