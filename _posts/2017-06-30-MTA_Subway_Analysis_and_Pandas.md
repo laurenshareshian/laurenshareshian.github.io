@@ -1,26 +1,9 @@
 ---
 layout: post
-Title: First Week Recap of Metis Data Science Bootcamp
+Title: Pandas Project: MTA Subway Analysis
 ---
 
-## General Thoughts
-Although the first week of the bootcamp was fast paced, I was pleasantly surprised to find that I knew more than I thought! This comfort was due to significant studying that I did independently in preparation for the bootcamp. In particular, I used the following resources that I highly recommend:
-
-* I took Python & data science courses through the [UCSD Advanced Analytics program](https://extension.ucsd.edu/courses-and-programs/data-mining-for-advanced-analytics).
- 
-* I worked through the [ThinkStats](http://greenteapress.com/thinkstats/) curriculum that included an introduction to Pandas.
-
-* I worked through [Jake Vanderplas' Data Science Handbook](https://github.com/jakevdp/PythonDataScienceHandbook) Jupyter Notebook modules.
-
-* I listened to Michael Kennedy's [Talk Python To Me Podcasts](https://talkpython.fm/) on the way home from work each day.
-
-That being said, not all of the first week's curriculum came easily. In particular, while I was already comfortable using Matplotlib and NumPy, Pandas was much harder to gain an intuitive sense for beyond just the basic operations.  I still have a long way to go in getting comfortable with using Pandas cleverly instead of just making for loops and dictionaries by hand. Also, I still suck at Git.
-
-On a positive note, though, I think that my group's first project went well. Here were the details...
-
-## First Assignment: Project Benson
-
-The premise of Project Benson was to analyze the NYC Metropolitan Transportation Authority (MTA) [turnstile data](http://web.mta.info/developers/turnstile.html) in order to provide recommendations to a womens' tech organization as to which subway stations they should target in order to advertise for their annual gala.
+The first project at Metis involved analyzing the NYC Metropolitan Transportation Authority (MTA) [turnstile data](http://web.mta.info/developers/turnstile.html) in order to provide recommendations to a womens' tech organization as to which subway stations they should target in order to advertise for their annual gala.
 
 The MTA data is pretty impressive - you can view the number of riders entering and exiting each station (even down to each turnstile!) within every four hour window. That is, after you've cleaned all of the data, of course, and gotten it in a form that you can work with.
 
@@ -75,5 +58,5 @@ Thus, my final top ten recommendations as to where to station advertisers on wee
 ![Station-Map4](/images/benson4.png)   
 
 
-In summary, this project provided a great opportunity to get my hands on a real data set and be forced to analyze it well enough in order to provide valuable recommendations under a tight deadline. I can't wait for Week 2!
+In summary, this project provided a great opportunity to get my hands on a real data set and be forced to analyze it well enough in order to provide valuable recommendations under a tight deadline. You can find my GitHub repo [here](https://github.com/laurenshareshian/MTA_Subway_Analysis). I can't wait for Week 2!
 
