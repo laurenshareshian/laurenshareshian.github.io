@@ -76,7 +76,7 @@ In summary, here are four take-aways from my project:
 4. For-profit and non-profit schools differ significantly in how much tuition revenue they collect from students, how much revenue they dedicate towards instruction, how much they pay their teachers, how much Pell grant money they take from taxpayers, and how quickly their alumni are able to pay back their loans. 
 
 
- <div id="scatter"></div>
+<div id="scatter"></div>
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 <script src="scatter.js" charset="utf-8"></script>
