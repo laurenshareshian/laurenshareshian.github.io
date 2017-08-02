@@ -81,6 +81,7 @@ In summary, here are four take-aways from my project:
 <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 <script src="scatter.js" charset="utf-8"></script>
 
+<script>
 var margin = { top: 100, right: 250, bottom: 100, left: 100 },
    outerWidth = 1000,
    outerHeight = 800,
@@ -273,7 +274,7 @@ d3.csv("myschools.csv", function(data) {
   }
 });
 
-
+</script>
 
 
 
