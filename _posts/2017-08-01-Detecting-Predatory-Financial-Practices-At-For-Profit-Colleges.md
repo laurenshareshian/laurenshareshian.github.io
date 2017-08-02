@@ -215,7 +215,7 @@ d3.csv("/myschools.csv", function(data) {
       .data(data)
     .enter().append("circle")
       .classed("dot", true)
-      .attr("r", function (d) { return Math.sqrt(d[rCat] / Math.PI); })
+      .attr("r", function (d) { return 6*Math.sqrt(d[rCat] / Math.PI); })
      //.attr("r", function (d) { return d[rCat]; })
       .attr("transform", transform)
       .style("fill", function(d) { return color(d[colorCat]); })
