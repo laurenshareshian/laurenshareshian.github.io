@@ -78,7 +78,7 @@ In summary, here are four take-aways from my project:
 
 <div id="scatter"></div>
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script src="https://labratrevenge.com/d3-tip/javascript
+
 
 <script>
 var margin = { top: 100, right: 250, bottom: 100, left: 100 },
@@ -96,11 +96,11 @@ var y = d3.scale.linear()
 
 var xCat = "tuition revenue per fte";
     yCat = "instructional expenditure per fte";
-   //  yCat = "faculty salary";
- //  xCat = "percent fafsa"
-  // yCat = "percent pell grant"
-  //xCat = "5 year declining balance"
-  //yCat = "7 yr repayment completion"
+//  yCat = "faculty salary";
+//  xCat = "percent fafsa"
+//  yCat = "percent pell grant"
+//  xCat = "5 year declining balance"
+//  yCat = "7 yr repayment completion"
     rCat = "branches";
     myname = "schoolname";
     colorCat = "type";
