@@ -92,7 +92,7 @@ var xCat = "tuition revenue per fte";
     under_invest = "under investigation";
 
 
-d3.csv("myschools.csv", function(data) {
+d3.csv("/myschools.csv", function(data) {
   data.forEach(function(d) {
    
    // d["faculty salary"] = +d["faculty salary"]
