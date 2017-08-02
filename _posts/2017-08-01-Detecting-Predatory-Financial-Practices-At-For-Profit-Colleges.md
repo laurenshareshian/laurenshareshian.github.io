@@ -64,7 +64,8 @@ How easily can for-profit schools and non-profit schools be distinguished? Well,
 
 <img src="/images/forprofit.png" width="500"/> 
 
-Hiiiiii
+
+<div class="index">
 
 <meta charset="utf-8">
 <style>
@@ -123,7 +124,7 @@ rect {
 
 </style>
 
-Yooooooo
+
 
 <div id="scatter"></div>
 <script src="https://d3js.org/d3.v3.min.js"></script>
@@ -324,6 +325,7 @@ d3.csv("/myschools.csv", function(data) {
 
 </script>
 
+</div>
 
 In summary, here are four take-aways from my project:
 
@@ -335,7 +337,7 @@ In summary, here are four take-aways from my project:
 
 4. For-profit and non-profit schools differ significantly in how much tuition revenue they collect from students, how much revenue they dedicate towards instruction, how much they pay their teachers, how much Pell grant money they take from taxpayers, and how quickly their alumni are able to pay back their loans.
 
-
+<div class="index">
 
 <meta charset="utf-8">
 <style>
@@ -592,4 +594,5 @@ d3.csv("/myschools.csv", function(data) {
 });
 
 </script>
+</div>
 
