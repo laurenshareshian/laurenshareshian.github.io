@@ -1,6 +1,6 @@
 ---
 layout: post
-Title: Predicting Predatory Financial Practices at For-Profit Colleges
+Title: Predicting Predatory Financial Practices at For Profit Colleges
 ---
 
 There has been much talk over how much debt students are saddled with as they graduate from college. The most aggregious cases involving for-profit colleges such as University of Phoenix, DeVry, ITT, and Everest College have been well-documented, including on [John Oliver](https://www.youtube.com/watch?v=P8pjd1QEA0c) and in [government reports](https://www.ed.gov/news/press-releases/education-department-releases-final-debt-earnings-rates-gainful-employment-programs). However, even programs as highly regarded as Harvard's drama program and Johns Hopkin's music program have received failing Debt-To-Earning ratings by the government, as chronicled by the [New York Times](https://www.nytimes.com/2017/01/13/upshot/harvard-too-obamas-final-push-to-catch-predatory-colleges-is-revealing.html).
@@ -73,7 +73,9 @@ In summary, here are four take-aways from my project:
 
 3. The Department of Education may want to impose more regulation on for-profit schools, as they account for 97% of the failing schools.
 
-4. For-profit and non-profit schools differ significantly in how much tuition revenue they collect from students, how much revenue they dedicate towards instruction, how much they pay their teachers, how much Pell grant money they take from taxpayers, and how quickly their alumni are able to pay back their loans. 
+4. For-profit and non-profit schools differ significantly in how much tuition revenue they collect from students, how much revenue they dedicate towards instruction, how much they pay their teachers, how much Pell grant money they take from taxpayers, and how quickly their alumni are able to pay back their loans.
+
+
 
 <!DOCTYPE html>
 <meta charset="utf-8">
