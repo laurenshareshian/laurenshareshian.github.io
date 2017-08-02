@@ -76,11 +76,71 @@ In summary, here are four take-aways from my project:
 4. For-profit and non-profit schools differ significantly in how much tuition revenue they collect from students, how much revenue they dedicate towards instruction, how much they pay their teachers, how much Pell grant money they take from taxpayers, and how quickly their alumni are able to pay back their loans. 
 
 
-<div id="scatter"></div>
-<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+rect {
+  fill: transparent;
+  shape-rendering: crispEdges;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.1);
+  shape-rendering: crispEdges;
+}
+
+.axisLine {
+  fill: none;
+  shape-rendering: crispEdges;
+  stroke: rgba(0, 0, 0, 0.5);
+  stroke-width: 2px;
+}
+
+.dot {
+  fill-opacity: .5;
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+</style>
+
+<body>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 <script>
+
 var margin = { top: 100, right: 250, bottom: 100, left: 100 },
    outerWidth = 1000,
    outerHeight = 800,
