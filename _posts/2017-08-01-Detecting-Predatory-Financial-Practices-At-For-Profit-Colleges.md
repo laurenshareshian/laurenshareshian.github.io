@@ -77,8 +77,8 @@ In summary, here are four take-aways from my project:
 
 
  <div id="scatter"></div>
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 <script src="scatter.js" charset="utf-8"></script>
 
 <script>
