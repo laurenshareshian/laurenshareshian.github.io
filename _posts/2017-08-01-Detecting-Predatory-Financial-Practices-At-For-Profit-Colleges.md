@@ -328,10 +328,12 @@ d3.csv("/myschools.csv", function(data) {
         .attr("transform", transform);
   }
 
+});
+
   function transform(d) {
     return "translate(" + x(d[xCat]) + "," + y(d[yCat]) + ")";
   }
-});
+
 
 </script>
 
