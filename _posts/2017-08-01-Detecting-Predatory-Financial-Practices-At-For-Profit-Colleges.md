@@ -11,17 +11,25 @@ My first step in performing the analysis was to obtain data on colleges. Luckily
 
 
 My seccond step was using pandas to merge this data set with the one containing the government's [school debt-to-earning ratings](https://studentaid.ed.gov/sa/about/data-center/school/ge). This data set was incomplete in the sense that not every school was listed. In addition, most schools only had a few majors listed. I classifed the school as having a failing debt-to-earnings score if at least one of their majors had a failing score. This was a pretty harsh classifier, as it meant that Harvard and Johns Hopkins failed. A snippet of the government's data set looked like this:
+
+
 <img src="/images/harvard.png" width="500"/> 
+
 
 Despite the fact that Harvard and Hopkins made the failing list, only 9% of the programs on the list had a failing status. While 66% of the schools on the list were for-profit, a whopping 97% of the schools listed as failing were for-profit. 
 
 My third step was using the sklearn.feature_selection.SelectKBest method to select features that had a p-value of less than 0.05. Since I want to use these features to predict debt-to-earning scores, I highlighted the features related to debt in red and earnings in green. Notice that for-profit status also plays a major feature role. I have crossed the green features out because I will not know a student's repayment status at the time of prediction. Thus, I will delete these variables from my features in order to eliminate information leak:
 
+
 <img src="/images/features.png" width="500"/> 
+
+
 
 How well did these features do in predicting a failing DTE score? Fabulously! Here are the ROC AUCs for the various estimators I implemented:
 
+
 <img src="/images/ROC.png" width="500"/> 
+
 
 Using a five-fold test/train split, the XGBoost, for instance, had an average ROC AUC of 97.5, test accuracy of 96.8, precision of 92.3, and recall of 79.2. In plain english, of all the failing DTE schools, I find 79.2% of them. In addition, of all the schools I label as failing, I am correct 92.3% of the time. Not too shabby! While XGBoost performed a hair better than the MLP neural network classifier, it was fun to start playing around with neural networks, too.
 
@@ -29,23 +37,33 @@ Okay, now that we know that it's easy to predict failing schools, let's explore 
 
 First view the plot below of tuition revenue per fte versus instructional expenditure per fte. Loosely, you can think of this as a comparision of how much the school is profiting from you taking a class versus how much of that expense it is putting back into the classroom instruction. We can see from the D3 graph below that for-profit schools (and especially the failing ones) are taking massive amounts of tuition from students and dedicating very little of it to the curriculum:
 
-<img src="/images/D31.png" width="500"/> 
+
+<img src="/images/D31.png" width="700"/> 
+
 
 In addition, we can see from the plot below that while for-profit schools are taking in a lot of tuition from students, very little of that tuition is going towards faculty salaries. Faculty salaries at for-profits are considerably lower:
 
-<img src="/images/D32.png" width="500"/> 
+
+<img src="/images/D32.png" width="700"/> 
+
 
 Another very stark difference between for-profit and non-profit schools are the types of financing their students receive. Non-profit school students typically complete the Fafsa application, which initiates the process of receiving a federal loan. A federal student loan is borrowed money that must be paid back with interest. For-profit schools, however, have a much larger percentage of their students receiving Pell grants. A Pell grant, unlike a loan, does not need to be repaid. Loosely, the US taxpayers are giving this money directly to for-profit schools and will never be repaid. You can see the difference between for-profit and non-profit student financing here:
 
-<img src="/images/D33.png" width="500"/> 
+
+<img src="/images/D33.png" width="700"/> 
+
 
 Lastly, there is also a stark difference in repayment rates of student loans between for and non-profit schools. For-profit schools have a much lower percentage of students with a declining loan balance 5 years after loan origination. In addition, they have a very low percentage of students who have repaid their loan in full seven years out:
 
-<img src="/images/D34.png" width="500"/> 
+
+<img src="/images/D34.png" width="700"/> 
+
 
 How easily can for-profit schools and non-profit schools be distinguished? Well, if I use just four features that are extremely important to student education and faculty well-being (tuition revenue per fte, instructional expenditure per fte, 5 year declining loan balance, and faculty salary), then I can predict non-profit and for-profit status with 99% accuracy:
 
+
 <img src="/images/forprofit.png" width="500"/> 
+
 
 In summary, here are four take-aways from my project:
 
