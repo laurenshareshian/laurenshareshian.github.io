@@ -7,7 +7,7 @@ Title: Predicting Predatory Financial Practices at For Profit Colleges
 <meta charset="utf-8">
 <style>
 
-ect {
+rect {
   fill: transparent;
   shape-rendering: crispEdges;
 }
@@ -60,7 +60,7 @@ ect {
 }
 
 </style>
-<body>
+
 <div id="scatter"></div>
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
