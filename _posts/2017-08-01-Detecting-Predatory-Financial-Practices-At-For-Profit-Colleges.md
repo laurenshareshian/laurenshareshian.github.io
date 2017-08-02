@@ -209,7 +209,7 @@ d3.csv("/myschools.csv", function(data) {
       .scaleExtent([0, 500])
       .on("zoom", zoom);
 
-  var svg = d3.select("scatter1")
+  var svg = d3.select("#scatter1")
     .append("svg")
       .attr("width", outerWidth)
       .attr("height", outerHeight)
@@ -479,7 +479,7 @@ d3.csv("/myschools.csv", function(data) {
       .scaleExtent([0, 500])
       .on("zoom", zoom);
 
-  var svg = d3.select("scatter2")
+  var svg = d3.select("#scatter2")
     .append("svg")
       .attr("width", outerWidth)
       .attr("height", outerHeight)
