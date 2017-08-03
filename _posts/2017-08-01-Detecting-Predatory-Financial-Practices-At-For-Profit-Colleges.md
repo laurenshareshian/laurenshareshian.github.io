@@ -10,10 +10,10 @@ In my data science immersion program, I was assigned the task of using the class
 My first step in performing the analysis was to obtain data on colleges. Luckily, there is a wealth of information to be pulled from the [government College Scorecard API](https://collegescorecard.ed.gov/data/documentation/). I pulled all 6,740 schools listed as "in operation" from the US. This included everything from private non-profit schools such as Harvard to large public universities to community colleges to for-profit private schools such as University of Phoenix to small for-profit trade schools with fun names like "Bos-Man's Barber College". It contained a massive amount of features related to student population, curriculum, and financial aid.
 
 
-My seccond step was using pandas to merge this data set with the one containing the government's [school debt-to-earning ratings](https://studentaid.ed.gov/sa/about/data-center/school/ge). This data set was incomplete in the sense that not every school was listed. In addition, most schools only had a few majors listed. I classifed the school as having a failing debt-to-earnings score if at least one of their majors had a failing score. This was a pretty harsh classifier, as it meant that Harvard and Johns Hopkins failed. A snippet of the government's data set looked like this:
+My second step was using pandas to merge this data set with the one containing the government's [school debt-to-earning ratings](https://studentaid.ed.gov/sa/about/data-center/school/ge). This data set was incomplete in the sense that not every school was listed. In addition, most schools only had a few majors listed. I classifed a school as having a failing debt-to-earnings score if at least one of their majors had a failing score. This was a pretty harsh classifier, as it meant that Harvard and Johns Hopkins failed. A snippet of the government's data set looked like this:
 
 
-<img src="/images/harvard.png" width="500"/> 
+<img src="/images/harvard.png" width="600"/> 
 
 
 Despite the fact that Harvard and Hopkins made the failing list, only 9% of the programs on the list had a failing status. While 66% of the schools on the list were for-profit, a whopping 97% of the schools listed as failing were for-profit. 
