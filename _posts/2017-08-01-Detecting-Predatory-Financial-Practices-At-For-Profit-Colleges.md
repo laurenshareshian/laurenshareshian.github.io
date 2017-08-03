@@ -379,10 +379,10 @@ var y = d3.scale.linear()
 var xCat2 = "tuition revenue per fte";
      yCat2 = "faculty salary";
     rCat2 = "branches";
-    myname2 = "schoolname";
-    colorCat2 = "type";
-    mybranches2 = "branches";
-    under_invest2 = "under investigation";
+    myname = "schoolname";
+    colorCat = "type";
+    mybranches = "branches";
+    under_invest = "under investigation";
 
 
 d3.csv("/myschools.csv", function(data) {
@@ -634,10 +634,10 @@ var y = d3.scale.linear()
 var xCat3 = "percent fafsa";
    yCat3 = "percent pell grant";
     rCat3 = "branches";
-    myname3 = "schoolname";
-    colorCat3 = "type";
-    mybranches3 = "branches";
-    under_invest3 = "under investigation";
+    myname = "schoolname";
+    colorCat = "type";
+    mybranches = "branches";
+    under_invest = "under investigation";
 
 
 d3.csv("/myschools.csv", function(data) {
@@ -893,10 +893,10 @@ var y = d3.scale.linear()
 var xCat4 = "5 year declining balance";
     yCat4 = "7 yr repayment completion";
     rCat4 = "branches";
-    myname4 = "schoolname";
-    colorCat4 = "type";
-    mybranches4 = "branches";
-    under_invest4 = "under investigation";
+    myname = "schoolname";
+    colorCat = "type";
+    mybranches = "branches";
+    under_invest = "under investigation";
 
 
 d3.csv("/myschools.csv", function(data) {
@@ -940,7 +940,7 @@ d3.csv("/myschools.csv", function(data) {
       .html(function(d) {
        console.log(d);
       //  return xCat + ": " + d[xCat] + "<br>" + yCat + ": " + d[yCat];
-     return d[myname4] + "<br>" + "Branches: " + d[mybranches4] + "<br>" + d[colorCat4]; 
+     return d[myname] + "<br>" + "Branches: " + d[mybranches] + "<br>" + d[colorCat]; 
      });
 
   var zoomBeh = d3.behavior.zoom()
