@@ -378,7 +378,7 @@ var y = d3.scale.linear()
 
 var xCat2 = "tuition revenue per fte";
      yCat2 = "faculty salary";
-    rCat2 = "branches";
+    rCat = "branches";
     myname = "schoolname";
     colorCat = "type";
     mybranches = "branches";
@@ -633,7 +633,7 @@ var y = d3.scale.linear()
 
 var xCat3 = "percent fafsa";
    yCat3 = "percent pell grant";
-    rCat3 = "branches";
+    rCat = "branches";
     myname = "schoolname";
     colorCat = "type";
     mybranches = "branches";
@@ -892,7 +892,7 @@ var y = d3.scale.linear()
 
 var xCat4 = "5 year declining balance";
     yCat4 = "7 yr repayment completion";
-    rCat4 = "branches";
+    rCat = "branches";
     myname = "schoolname";
     colorCat = "type";
     mybranches = "branches";
