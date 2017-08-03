@@ -1070,5 +1070,5 @@ In summary, here are four take-aways from my project:
 
 4. For-profit and non-profit schools differ significantly in how much tuition revenue they collect from students, how much revenue they dedicate towards instruction, how much they pay their teachers, how much Pell grant money they take from taxpayers, and how quickly their alumni are able to pay back their loans.
 
-
+I had a blast doing this project! I learned a ton about using scikit-learn classification algorithms and D3 visualization. I also used stored my data on an AWS server and accessed it using PostgreSQL. You can find my project code [here](https://github.com/laurenshareshian/Detecting_For_Profit_College_Fraud).
 
