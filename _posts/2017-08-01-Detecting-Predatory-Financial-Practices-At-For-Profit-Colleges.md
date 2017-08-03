@@ -117,8 +117,8 @@ var y = d3.scale.linear()
     .range([height, 0]).nice();
 
 
-var xCat = "tuition revenue per fte";
-    yCat = "instructional expenditure per fte";
+var xCat1 = "tuition revenue per fte";
+    yCat1 = "instructional expenditure per fte";
     rCat = "branches";
     myname = "schoolname";
     colorCat = "type";
@@ -133,12 +133,12 @@ d3.csv("/myschools.csv", function(data) {
     
 });
 
-  var xMax = d3.max(data, function(d) { return d[xCat]; }) * 1.05,
-      xMin = d3.min(data, function(d) { return d[xCat]; }),
-      xMin = xMin > 0 ? 0 : xMin,
-      yMax = d3.max(data, function(d) { return d[yCat]; }) * 1.05,
-      yMin = d3.min(data, function(d) { return d[yCat]; }),
-      yMin = yMin > 0 ? 0 : yMin;
+  var xMax1 = d3.max(data, function(d) { return d[xCat1]; }) * 1.05,
+      xMin1 = d3.min(data, function(d) { return d[xCat1]; }),
+      xMin1 = xMin1 > 0 ? 0 : xMin1,
+      yMax1 = d3.max(data, function(d) { return d[yCat1]; }) * 1.05,
+      yMin1 = d3.min(data, function(d) { return d[yCat1]; }),
+      yMin1 = yMin1 > 0 ? 0 : yMin1;
 
   x.domain([0, 20000]);
   y.domain([0, 12000]);
