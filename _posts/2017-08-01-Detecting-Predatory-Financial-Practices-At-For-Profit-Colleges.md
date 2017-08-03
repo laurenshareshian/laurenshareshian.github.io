@@ -21,14 +21,14 @@ Despite the fact that Harvard and Hopkins made the failing list, only 9% of the 
 My third step was using the sklearn.feature_selection.SelectKBest method to select features that had a p-value of less than 0.05. Since I want to use these features to predict debt-to-earning scores, I highlighted the features related to debt in red and earnings in green. Notice that for-profit status also plays a major feature role. I have crossed the green features out because I will not know a student's repayment status at the time of prediction. Thus, I will delete these variables from my features in order to eliminate information leak:
 
 
-<img src="/images/features.png" width="500"/> 
+<img src="/images/features.png" width="600"/> 
 
 
 
 How well did these features do in predicting a failing DTE score? Fabulously! Here are the ROC AUCs for the various estimators I implemented:
 
 
-<img src="/images/ROC.png" width="500"/> 
+<img src="/images/ROC.png" width="600"/> 
 
 
 Using a five-fold test/train split, the XGBoost, for instance, had an average ROC AUC of 97.5, test accuracy of 96.8, precision of 92.3, and recall of 79.2. In plain english, of all the failing DTE schools, I find 79.2% of them. In addition, of all the schools I label as failing, I am correct 92.3% of the time. Not too shabby! While XGBoost performed a hair better than the MLP neural network classifier, it was fun to start playing around with neural networks, too.
