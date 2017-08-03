@@ -907,8 +907,8 @@ var y = d3.scale.linear()
 
 var //xCat = "tuition revenue per fte";
     //yCat = "instructional expenditure per fte";
-  //xCat = "5 year declining balance"
-  //yCat = "7 yr repayment completion"
+  xCat = "5 year declining balance"
+  yCat = "7 yr repayment completion"
     rCat = "branches";
     myname = "schoolname";
     colorCat = "type";
