@@ -160,8 +160,6 @@ d3.csv("/myschools.csv", function(data) {
   var color = d3.scale.ordinal()
   .domain(['non profit', 'for profit', 'non profit under investigation', 'for profit under investigation'])
   .range(["green", "orange" , "blue", 'red']);
-//  .domain(['non profit', 'for profit'])
- // .range(["green", "orange" ]);
   var tip = d3.tip()
       .attr("class", "d3-tip")
       .offset([-10, 0])
@@ -177,7 +175,7 @@ d3.csv("/myschools.csv", function(data) {
       .scaleExtent([0, 500])
       .on("zoom", zoom);
 
-  var svg1 = d3.select("#scatter1")
+  var svg = d3.select("#scatter1")
     .append("svg")
       .attr("width", outerWidth)
       .attr("height", outerHeight)
@@ -185,13 +183,13 @@ d3.csv("/myschools.csv", function(data) {
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
       .call(zoomBeh);
 
-  svg1.call(tip);
+  svg.call(tip);
 
-  svg1.append("rect")
+  svg.append("rect")
       .attr("width", width)
       .attr("height", height);
 
-  svg1.append("g")
+  svg.append("g")
       .classed("x axis", true)
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis)
@@ -202,7 +200,7 @@ d3.csv("/myschools.csv", function(data) {
       .style("text-anchor", "end")
       .text(xCat);
 
-  svg1.append("g")
+  svg.append("g")
       .classed("y axis", true)
       .call(yAxis)
     .append("text")
@@ -213,7 +211,7 @@ d3.csv("/myschools.csv", function(data) {
       .style("text-anchor", "end")
       .text(yCat);
 
-  svg1.append("g")
+  svg.append("g")
   .append("text")
   .classed("label", true)
     .attr("x", width / 2 )
@@ -223,7 +221,7 @@ d3.csv("/myschools.csv", function(data) {
 
 
 
-  var objects = svg1.append("svg")
+  var objects = svg.append("svg")
       .classed("objects", true)
       .attr("width", width)
       .attr("height", height);
@@ -260,7 +258,7 @@ d3.csv("/myschools.csv", function(data) {
       .on("mouseover", tip.show)
       .on("mouseout", tip.hide);
 
-  var legend = svg1.selectAll(".legend")
+  var legend = svg.selectAll(".legend")
       .data(color.domain())
     .enter().append("g")
       .classed("legend", true)
@@ -279,10 +277,10 @@ d3.csv("/myschools.csv", function(data) {
   d3.select("input").on("click", change);
 
   function zoom() {
-    svg1.select(".x.axis").call(xAxis);
-    svg1.select(".y.axis").call(yAxis);
+    svg.select(".x.axis").call(xAxis);
+    svg.select(".y.axis").call(yAxis);
 
-    svg1.selectAll(".dot")
+    svg.selectAll(".dot")
         .attr("transform", transform);
   }
 
