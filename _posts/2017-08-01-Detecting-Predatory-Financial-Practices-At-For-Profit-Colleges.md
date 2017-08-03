@@ -105,7 +105,7 @@ rect {
 <script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 <script>
 
-var margin = { top: 100, right: 350, bottom: 100, left: 100 },
+var margin = { top: 100, right: 250, bottom: 100, left: 100 },
    outerWidth = 9000,
    outerHeight = 700,
     width = outerWidth - margin.left - margin.right,
