@@ -198,7 +198,7 @@ d3.csv("/myschools.csv", function(data) {
       .attr("x", width)
       .attr("y", margin.bottom -25)
       .style("text-anchor", "end")
-      .text(xCat);
+      .text(xCat1);
 
   svg.append("g")
       .classed("y axis", true)
@@ -209,7 +209,7 @@ d3.csv("/myschools.csv", function(data) {
       .attr("y", -margin.left)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text(yCat);
+      .text(yCat1);
 
   svg.append("g")
   .append("text")
@@ -247,14 +247,8 @@ d3.csv("/myschools.csv", function(data) {
     .enter().append("circle")
       .classed("dot", true)
       .attr("r", function (d) { return 6*Math.sqrt(d[rCat] / Math.PI); })
-     //.attr("r", function (d) { return d[rCat]; })
       .attr("transform", transform)
       .style("fill", function(d) { return color(d[colorCat]); })
-     // .attr("r", function (d) { return d[rCat]; })
-      //.attr("transform", transform)
-     // .style("stroke-width", 5)    // set the stroke width
-      //.style("stroke", function(d) { return color(d[colorCat]); })      // set the line colour
-      //.style("fill", "none")  
       .on("mouseover", tip.show)
       .on("mouseout", tip.hide);
 
@@ -424,7 +418,6 @@ d3.csv("/myschools.csv", function(data) {
       .offset([-10, 0])
       .html(function(d) {
        console.log(d);
-      //  return xCat + ": " + d[xCat] + "<br>" + yCat + ": " + d[yCat];
      return d[myname] + "<br>" + "Branches: " + d[mybranches] + "<br>" + d[colorCat]; 
      });
 
@@ -457,7 +450,7 @@ d3.csv("/myschools.csv", function(data) {
       .attr("x", width)
       .attr("y", margin.bottom -25)
       .style("text-anchor", "end")
-      .text(xCat);
+      .text(xCat2);
 
   svg2.append("g")
       .classed("y axis", true)
@@ -468,7 +461,7 @@ d3.csv("/myschools.csv", function(data) {
       .attr("y", -margin.left)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text(yCat);
+      .text(yCat2);
 
   svg2.append("g")
   .append("text")
@@ -509,11 +502,6 @@ d3.csv("/myschools.csv", function(data) {
      //.attr("r", function (d) { return d[rCat]; })
       .attr("transform", transform)
       .style("fill", function(d) { return color(d[colorCat]); })
-     // .attr("r", function (d) { return d[rCat]; })
-      //.attr("transform", transform)
-     // .style("stroke-width", 5)    // set the stroke width
-      //.style("stroke", function(d) { return color(d[colorCat]); })      // set the line colour
-      //.style("fill", "none")  
       .on("mouseover", tip.show)
       .on("mouseout", tip.hide);
 
@@ -679,7 +667,7 @@ d3.csv("/myschools.csv", function(data) {
       .offset([-10, 0])
       .html(function(d) {
        console.log(d);
-      //  return xCat + ": " + d[xCat] + "<br>" + yCat + ": " + d[yCat];
+
      return d[myname] + "<br>" + "Branches: " + d[mybranches] + "<br>" + d[colorCat]; 
      });
 
@@ -712,7 +700,7 @@ d3.csv("/myschools.csv", function(data) {
       .attr("x", width)
       .attr("y", margin.bottom -25)
       .style("text-anchor", "end")
-      .text(xCat);
+      .text(xCat3);
 
   svg3.append("g")
       .classed("y axis", true)
@@ -723,7 +711,7 @@ d3.csv("/myschools.csv", function(data) {
       .attr("y", -margin.left)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text(yCat);
+      .text(yCat3);
 
   svg3.append("g")
   .append("text")
@@ -970,7 +958,7 @@ d3.csv("/myschools.csv", function(data) {
       .attr("x", width)
       .attr("y", margin.bottom -25)
       .style("text-anchor", "end")
-      .text(xCat);
+      .text(xCat4);
 
   svg4.append("g")
       .classed("y axis", true)
@@ -981,7 +969,7 @@ d3.csv("/myschools.csv", function(data) {
       .attr("y", -margin.left)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text(yCat);
+      .text(yCat4);
 
   svg4.append("g")
   .append("text")
