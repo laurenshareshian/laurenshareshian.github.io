@@ -106,8 +106,8 @@ rect {
 <script>
 
 var margin = { top: 100, right: 250, bottom: 100, left: 100 },
-   outerWidth = 1000,
-   outerHeight = 800,
+   outerWidth = 9000,
+   outerHeight = 700,
     width = outerWidth - margin.left - margin.right,
     height = outerHeight - margin.top - margin.bottom;
 
