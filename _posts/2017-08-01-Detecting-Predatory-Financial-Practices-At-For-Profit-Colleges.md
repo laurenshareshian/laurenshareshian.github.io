@@ -10,15 +10,15 @@ In my data science immersion program, I was assigned the task of using the class
 My first step in performing the analysis was to obtain data on colleges. Luckily, there is a wealth of information to be pulled from the [government College Scorecard API](https://collegescorecard.ed.gov/data/documentation/). I pulled all 6,740 schools listed as "in operation" from the US. This included everything from private non-profit schools such as Harvard to large public universities to community colleges to for-profit private schools such as University of Phoenix to small for-profit trade schools with fun names like "Bos-Man's Barber College". It contained a massive amount of features related to student population, curriculum, and financial aid.
 
 
-My second step was using pandas to merge this data set with the one containing the government's [school debt-to-earning ratings](https://studentaid.ed.gov/sa/about/data-center/school/ge). This data set was incomplete in the sense that not every school was listed. In addition, most schools only had a few majors listed. I classifed a school as having a failing debt-to-earnings score if at least one of their majors had a failing score. This was a pretty harsh classifier, as it meant that Harvard and Johns Hopkins failed. A snippet of the government's data set looked like this:
+My second step was using Python pandas to merge this data set with the one containing the government's [school debt-to-earning ratings](https://studentaid.ed.gov/sa/about/data-center/school/ge). This data set was incomplete in the sense that not every school was listed. In addition, most schools only had a few majors listed. I classifed a school as having a failing debt-to-earnings score if at least one of their majors had a failing score. This was a pretty harsh classifier, as it meant that Harvard and Johns Hopkins failed. A snippet of the government's data set looked like this:
 
 
 <img src="/images/harvard.png" width="600"/> 
 
 
-Despite the fact that Harvard and Hopkins made the failing list, only 9% of the programs on the list had a failing status. While 66% of the schools on the list were for-profit, a whopping 97% of the schools listed as failing were for-profit. 
+Despite the fact that Harvard and Hopkins made the failing list, only 9% of the programs on the DTE list had a failing status. While 66% of the schools on the list were for-profit, a whopping 97% of the schools listed as failing were for-profit. 
 
-My third step was using the sklearn.feature_selection.SelectKBest method to select features that had a p-value of less than 0.05. Since I want to use these features to predict debt-to-earning scores, I highlighted the features related to debt in red and earnings in green. Notice that for-profit status also plays a major feature role. I have crossed the green features out because I will not know a student's repayment status at the time of prediction. Thus, I will delete these variables from my features in order to eliminate information leak:
+My third step was using the sklearn.feature_selection.SelectKBest method to select features that had a p-value of less than 0.05. Since I wanted to use these features to predict debt-to-earning scores, I highlighted the features related to debt in red and earnings in green. Notice that for-profit status also plays a major feature role. I have crossed the green features out because I will not know a student's repayment status at the time of prediction. Thus, I will delete these variables from my features in order to eliminate information leak:
 
 
 <img src="/images/features.png" width="600"/> 
@@ -35,8 +35,9 @@ Using a five-fold test/train split, the XGBoost, for instance, had an average RO
 
 Okay, now that we know that it's easy to predict failing schools, let's explore their commonalities. While 43% of the schools in our dataset were for-profit, an overwhelming 97% of the schools classifed with a failing DTE were for-profit. What makes for-profit schools so different? Well, it turns out many things. 
 
-First view the plot below of tuition revenue per fte versus instructional expenditure per fte. Loosely, you can think of this as a comparision of how much the school is profiting from you taking a class versus how much of that expense it is putting back into the classroom instruction. We can see from the D3 graph below that for-profit schools (and especially the failing ones) are taking massive amounts of tuition from students and dedicating very little of it to the curriculum:
+First view the plot below of tuition revenue per fte versus instructional expenditure per fte. Loosely, you can think of this as a comparision of how much the school is profiting from you taking a class versus how much of that expense it is putting back into the classroom. We can see from the D3 graph below that for-profit schools (and especially the failing ones) are taking massive amounts of tuition from students and dedicating very little of it to the curriculum. 
 
+You can move your mouse over to view school names. The radius of the dots correspond to the number of branches. Large chains like DeVry and National American University in the bottom right were among the worst:
 
 
 
@@ -286,7 +287,7 @@ d3.csv("/myschools.csv", function(data) {
 </script>
 
 
-In addition, we can see from the plot below that while for-profit schools are taking in a lot of tuition from students, very little of that tuition is going towards faculty salaries. Faculty salaries at for-profits are considerably lower:
+In addition, we can see from the plot below that while for-profit schools are taking in a lot of tuition from students, very little of that tuition is going towards faculty salaries. Faculty salaries at for-profits are considerably lower. You can see that the University of Phoenix has one of the worst faculty salaries:
 
 
 
@@ -539,7 +540,7 @@ d3.csv("/myschools.csv", function(data) {
 </script>
 
 
-Another very stark difference between for-profit and non-profit schools are the types of financing their students receive. Non-profit school students typically complete the Fafsa application, which initiates the process of receiving a federal loan. A federal student loan is borrowed money that must be paid back with interest. For-profit schools, however, have a much larger percentage of their students receiving Pell grants. A Pell grant, unlike a loan, does not need to be repaid. Loosely, the US taxpayers are giving this money directly to for-profit schools and will never be repaid. You can see the difference between for-profit and non-profit student financing here:
+Another very stark difference between for-profit and non-profit schools are the types of financing their students receive. Non-profit school students typically complete the Fafsa application, which initiates the process of receiving a federal loan. A federal student loan is borrowed money that must be paid back with interest. For-profit schools, however, have a much larger percentage of their students receiving Pell grants. A Pell grant, unlike a loan, does not need to be repaid. Loosely, the US taxpayers are giving this money directly to for-profit schools and will never be repaid. You can see the difference between for-profit and non-profit student financing here. Everest College, with a whopping 55 branches, is taking among the largest percentage of Pell grant money:
 
 
 <meta charset="utf-8">
