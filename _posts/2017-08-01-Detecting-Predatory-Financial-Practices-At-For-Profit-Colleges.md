@@ -119,11 +119,6 @@ var y = d3.scale.linear()
 
 var xCat = "tuition revenue per fte";
     yCat = "instructional expenditure per fte";
-   //  yCat = "faculty salary";
- //  xCat = "percent fafsa"
-  // yCat = "percent pell grant"
-  //xCat = "5 year declining balance"
-  //yCat = "7 yr repayment completion"
     rCat = "branches";
     myname = "schoolname";
     colorCat = "type";
@@ -182,7 +177,7 @@ d3.csv("/myschools.csv", function(data) {
       .scaleExtent([0, 500])
       .on("zoom", zoom);
 
-  var svg = d3.select("#scatter1")
+  var svg1 = d3.select("#scatter1")
     .append("svg")
       .attr("width", outerWidth)
       .attr("height", outerHeight)
@@ -190,13 +185,13 @@ d3.csv("/myschools.csv", function(data) {
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
       .call(zoomBeh);
 
-  svg.call(tip);
+  svg1.call(tip);
 
-  svg.append("rect")
+  svg1.append("rect")
       .attr("width", width)
       .attr("height", height);
 
-  svg.append("g")
+  svg1.append("g")
       .classed("x axis", true)
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis)
@@ -207,7 +202,7 @@ d3.csv("/myschools.csv", function(data) {
       .style("text-anchor", "end")
       .text(xCat);
 
-  svg.append("g")
+  svg1.append("g")
       .classed("y axis", true)
       .call(yAxis)
     .append("text")
@@ -218,7 +213,7 @@ d3.csv("/myschools.csv", function(data) {
       .style("text-anchor", "end")
       .text(yCat);
 
-  svg.append("g")
+  svg1.append("g")
   .append("text")
   .classed("label", true)
     .attr("x", width / 2 )
@@ -228,7 +223,7 @@ d3.csv("/myschools.csv", function(data) {
 
 
 
-  var objects = svg.append("svg")
+  var objects = svg1.append("svg")
       .classed("objects", true)
       .attr("width", width)
       .attr("height", height);
@@ -265,7 +260,7 @@ d3.csv("/myschools.csv", function(data) {
       .on("mouseover", tip.show)
       .on("mouseout", tip.hide);
 
-  var legend = svg.selectAll(".legend")
+  var legend = svg1.selectAll(".legend")
       .data(color.domain())
     .enter().append("g")
       .classed("legend", true)
@@ -284,10 +279,10 @@ d3.csv("/myschools.csv", function(data) {
   d3.select("input").on("click", change);
 
   function zoom() {
-    svg.select(".x.axis").call(xAxis);
-    svg.select(".y.axis").call(yAxis);
+    svg1.select(".x.axis").call(xAxis);
+    svg1.select(".y.axis").call(yAxis);
 
-    svg.selectAll(".dot")
+    svg1.selectAll(".dot")
         .attr("transform", transform);
   }
 
@@ -382,12 +377,7 @@ var y = d3.scale.linear()
 
 
 var xCat = "tuition revenue per fte";
-    //yCat = "instructional expenditure per fte";
      yCat = "faculty salary";
- //  xCat = "percent fafsa"
-  // yCat = "percent pell grant"
-  //xCat = "5 year declining balance"
-  //yCat = "7 yr repayment completion"
     rCat = "branches";
     myname = "schoolname";
     colorCat = "type";
@@ -641,13 +631,8 @@ var y = d3.scale.linear()
     .range([height, 0]).nice();
 
 
-var //xCat = "tuition revenue per fte";
-    //yCat = "instructional expenditure per fte";
-   //  yCat = "faculty salary";
-   xCat = "percent fafsa";
+var xCat = "percent fafsa";
    yCat = "percent pell grant";
-  //xCat = "5 year declining balance"
-  //yCat = "7 yr repayment completion"
     rCat = "branches";
     myname = "schoolname";
     colorCat = "type";
@@ -905,10 +890,8 @@ var y = d3.scale.linear()
     .range([height, 0]).nice();
 
 
-var //xCat = "tuition revenue per fte";
-    //yCat = "instructional expenditure per fte";
-  xCat = "5 year declining balance";
-  yCat = "7 yr repayment completion";
+var xCat = "5 year declining balance";
+    yCat = "7 yr repayment completion";
     rCat = "branches";
     myname = "schoolname";
     colorCat = "type";
