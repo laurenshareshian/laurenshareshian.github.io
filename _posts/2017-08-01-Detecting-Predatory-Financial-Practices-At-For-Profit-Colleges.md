@@ -287,7 +287,7 @@ d3.csv("/myschools.csv", function(data) {
   }
 
   function transform(d) {
-    return "translate(" + x(d[xCat]) + "," + y(d[yCat]) + ")";
+    return "translate(" + x(d[xCat1]) + "," + y(d[yCat1]) + ")";
   }
 });
 
