@@ -631,13 +631,13 @@ var y = d3.scale.linear()
     .range([height, 0]).nice();
 
 
-var xCat = "percent fafsa";
-   yCat = "percent pell grant";
-    rCat = "branches";
-    myname = "schoolname";
-    colorCat = "type";
-    mybranches = "branches";
-    under_invest = "under investigation";
+var xCat3 = "percent fafsa";
+   yCat3 = "percent pell grant";
+    rCat3 = "branches";
+    myname3 = "schoolname";
+    colorCat3 = "type";
+    mybranches3 = "branches";
+    under_invest3 = "under investigation";
 
 
 d3.csv("/myschools.csv", function(data) {
@@ -647,12 +647,12 @@ d3.csv("/myschools.csv", function(data) {
     
 });
 
-  var xMax = d3.max(data, function(d) { return d[xCat]; }) * 1.05,
-      xMin = d3.min(data, function(d) { return d[xCat]; }),
-      xMin = xMin > 0 ? 0 : xMin,
-      yMax = d3.max(data, function(d) { return d[yCat]; }) * 1.05,
-      yMin = d3.min(data, function(d) { return d[yCat]; }),
-      yMin = yMin > 0 ? 0 : yMin;
+  var xMax3 = d3.max(data, function(d) { return d[xCat3]; }) * 1.05,
+      xMin3 = d3.min(data, function(d) { return d[xCat3]; }),
+      xMin3 = xMin3 > 0 ? 0 : xMin3,
+      yMax3 = d3.max(data, function(d) { return d[yCat3]; }) * 1.05,
+      yMin3 = d3.min(data, function(d) { return d[yCat3]; }),
+      yMin3 = yMin3 > 0 ? 0 : yMin3;
 
   x.domain([0, 1]);
   y.domain([0, 1]);
@@ -691,7 +691,7 @@ d3.csv("/myschools.csv", function(data) {
       .scaleExtent([0, 500])
       .on("zoom", zoom);
 
-  var svg = d3.select("#scatter3")
+  var svg3 = d3.select("#scatter3")
     .append("svg")
       .attr("width", outerWidth)
       .attr("height", outerHeight)
@@ -699,13 +699,13 @@ d3.csv("/myschools.csv", function(data) {
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
       .call(zoomBeh);
 
-  svg.call(tip);
+  svg3.call(tip);
 
-  svg.append("rect")
+  svg3.append("rect")
       .attr("width", width)
       .attr("height", height);
 
-  svg.append("g")
+  svg3.append("g")
       .classed("x axis", true)
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis)
@@ -716,7 +716,7 @@ d3.csv("/myschools.csv", function(data) {
       .style("text-anchor", "end")
       .text(xCat);
 
-  svg.append("g")
+  svg3.append("g")
       .classed("y axis", true)
       .call(yAxis)
     .append("text")
@@ -727,7 +727,7 @@ d3.csv("/myschools.csv", function(data) {
       .style("text-anchor", "end")
       .text(yCat);
 
-  svg.append("g")
+  svg3.append("g")
   .append("text")
   .classed("label", true)
     .attr("x", width / 2 )
@@ -737,7 +737,7 @@ d3.csv("/myschools.csv", function(data) {
 
 
 
-  var objects = svg.append("svg")
+  var objects = svg3.append("svg")
       .classed("objects", true)
       .attr("width", width)
       .attr("height", height);
@@ -774,7 +774,7 @@ d3.csv("/myschools.csv", function(data) {
       .on("mouseover", tip.show)
       .on("mouseout", tip.hide);
 
-  var legend = svg.selectAll(".legend")
+  var legend = svg3.selectAll(".legend")
       .data(color.domain())
     .enter().append("g")
       .classed("legend", true)
@@ -793,15 +793,15 @@ d3.csv("/myschools.csv", function(data) {
   d3.select("input").on("click", change);
 
   function zoom() {
-    svg.select(".x.axis").call(xAxis);
-    svg.select(".y.axis").call(yAxis);
+    svg3.select(".x.axis").call(xAxis);
+    svg3.select(".y.axis").call(yAxis);
 
-    svg.selectAll(".dot")
+    svg3.selectAll(".dot")
         .attr("transform", transform);
   }
 
   function transform(d) {
-    return "translate(" + x(d[xCat]) + "," + y(d[yCat]) + ")";
+    return "translate(" + x(d[xCat3]) + "," + y(d[yCat3]) + ")";
   }
 });
 
@@ -890,13 +890,13 @@ var y = d3.scale.linear()
     .range([height, 0]).nice();
 
 
-var xCat = "5 year declining balance";
-    yCat = "7 yr repayment completion";
-    rCat = "branches";
-    myname = "schoolname";
-    colorCat = "type";
-    mybranches = "branches";
-    under_invest = "under investigation";
+var xCat4 = "5 year declining balance";
+    yCat4 = "7 yr repayment completion";
+    rCat4 = "branches";
+    myname4 = "schoolname";
+    colorCat4 = "type";
+    mybranches4 = "branches";
+    under_invest4 = "under investigation";
 
 
 d3.csv("/myschools.csv", function(data) {
@@ -906,12 +906,12 @@ d3.csv("/myschools.csv", function(data) {
     
 });
 
-  var xMax = d3.max(data, function(d) { return d[xCat]; }) * 1.05,
-      xMin = d3.min(data, function(d) { return d[xCat]; }),
-      xMin = xMin > 0 ? 0 : xMin,
-      yMax = d3.max(data, function(d) { return d[yCat]; }) * 1.05,
-      yMin = d3.min(data, function(d) { return d[yCat]; }),
-      yMin = yMin > 0 ? 0 : yMin;
+  var xMax4 = d3.max(data, function(d) { return d[xCat4]; }) * 1.05,
+      xMin4 = d3.min(data, function(d) { return d[xCat4]; }),
+      xMin4 = xMin4 > 0 ? 0 : xMin4,
+      yMax4 = d3.max(data, function(d) { return d[yCat4]; }) * 1.05,
+      yMin4 = d3.min(data, function(d) { return d[yCat4]; }),
+      yMin4 = yMin4 > 0 ? 0 : yMin4;
 
 
   x.domain([0, 1]);
@@ -940,7 +940,7 @@ d3.csv("/myschools.csv", function(data) {
       .html(function(d) {
        console.log(d);
       //  return xCat + ": " + d[xCat] + "<br>" + yCat + ": " + d[yCat];
-     return d[myname] + "<br>" + "Branches: " + d[mybranches] + "<br>" + d[colorCat]; 
+     return d[myname4] + "<br>" + "Branches: " + d[mybranches4] + "<br>" + d[colorCat4]; 
      });
 
   var zoomBeh = d3.behavior.zoom()
@@ -949,7 +949,7 @@ d3.csv("/myschools.csv", function(data) {
       .scaleExtent([0, 500])
       .on("zoom", zoom);
 
-  var svg = d3.select("#scatter4")
+  var svg4 = d3.select("#scatter4")
     .append("svg")
       .attr("width", outerWidth)
       .attr("height", outerHeight)
@@ -957,13 +957,13 @@ d3.csv("/myschools.csv", function(data) {
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
       .call(zoomBeh);
 
-  svg.call(tip);
+  svg4.call(tip);
 
-  svg.append("rect")
+  svg4.append("rect")
       .attr("width", width)
       .attr("height", height);
 
-  svg.append("g")
+  svg4.append("g")
       .classed("x axis", true)
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis)
@@ -974,7 +974,7 @@ d3.csv("/myschools.csv", function(data) {
       .style("text-anchor", "end")
       .text(xCat);
 
-  svg.append("g")
+  svg4.append("g")
       .classed("y axis", true)
       .call(yAxis)
     .append("text")
@@ -985,7 +985,7 @@ d3.csv("/myschools.csv", function(data) {
       .style("text-anchor", "end")
       .text(yCat);
 
-  svg.append("g")
+  svg4.append("g")
   .append("text")
   .classed("label", true)
     .attr("x", width / 2 )
@@ -995,7 +995,7 @@ d3.csv("/myschools.csv", function(data) {
 
 
 
-  var objects = svg.append("svg")
+  var objects = svg4.append("svg")
       .classed("objects", true)
       .attr("width", width)
       .attr("height", height);
@@ -1032,7 +1032,7 @@ d3.csv("/myschools.csv", function(data) {
       .on("mouseover", tip.show)
       .on("mouseout", tip.hide);
 
-  var legend = svg.selectAll(".legend")
+  var legend = svg4.selectAll(".legend")
       .data(color.domain())
     .enter().append("g")
       .classed("legend", true)
@@ -1051,15 +1051,15 @@ d3.csv("/myschools.csv", function(data) {
   d3.select("input").on("click", change);
 
   function zoom() {
-    svg.select(".x.axis").call(xAxis);
-    svg.select(".y.axis").call(yAxis);
+    svg4.select(".x.axis").call(xAxis);
+    svg4.select(".y.axis").call(yAxis);
 
-    svg.selectAll(".dot")
+    svg4.selectAll(".dot")
         .attr("transform", transform);
   }
 
   function transform(d) {
-    return "translate(" + x(d[xCat]) + "," + y(d[yCat]) + ")";
+    return "translate(" + x(d[xCat4]) + "," + y(d[yCat4]) + ")";
   }
 });
 
