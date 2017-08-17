@@ -83,15 +83,16 @@ rect {
 
 </style>
 
-<div id="scatter3"></div>
+
+
+<div id="scatter1"></div>
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-
-    
 <script>
+
 var margin = { top: 100, right: 250, bottom: 100, left: 100 },
-   outerWidth = 1000,
-   outerHeight = 800,
+   outerWidth = 900,
+   outerHeight = 700,
     width = outerWidth - margin.left - margin.right,
     height = outerHeight - margin.top - margin.bottom;
 
@@ -102,26 +103,33 @@ var y = d3.scale.linear()
     .range([height, 0]).nice();
 
 
-var xCat = "x";
-    yCat = "y";
-    myname = "article";
-    colorCat = "celeb";
+var xCat1 = "tuition revenue per fte";
+    yCat1 = "instructional expenditure per fte";
+    rCat = "branches";
+    myname = "schoolname";
+    colorCat = "type";
+    mybranches = "branches";
+    under_invest = "under investigation";
 
 
-d3.csv("/mycelebs.csv", function(data) {
+d3.csv("/myschools.csv", function(data) {
   data.forEach(function(d) {
    
+   // d["faculty salary"] = +d["faculty salary"]
+    
 });
 
-  var xMax = d3.max(data, function(d) { return d[xCat]; }) * 1.05,
-      xMin = d3.min(data, function(d) { return d[xCat]; }),
-      xMin = xMin > 0 ? 0 : xMin,
-      yMax = d3.max(data, function(d) { return d[yCat]; }) * 1.05,
-      yMin = d3.min(data, function(d) { return d[yCat]; }),
-      yMin = yMin > 0 ? 0 : yMin;
+  var xMax1 = d3.max(data, function(d) { return d[xCat1]; }) * 1.05,
+      xMin1 = d3.min(data, function(d) { return d[xCat1]; }),
+      xMin1 = xMin1 > 0 ? 0 : xMin1,
+      yMax1 = d3.max(data, function(d) { return d[yCat1]; }) * 1.05,
+      yMin1 = d3.min(data, function(d) { return d[yCat1]; }),
+      yMin1 = yMin1 > 0 ? 0 : yMin1;
 
-  x.domain([-25,25]);
-  y.domain([-25,25]);
+  x.domain([0, 20000]);
+  y.domain([0, 12000]);
+  //x.domain([0, 1]);
+  //y.domain([0, 1]);
 
   var xAxis = d3.svg.axis()
       .scale(x)
@@ -136,17 +144,15 @@ d3.csv("/mycelebs.csv", function(data) {
 
 //  var color = d3.scale.category10();
   var color = d3.scale.ordinal()
-  .domain(['rob & chyna', 'kim & kanye', 'justin bieber', 'trump', 'bachelor pool scandal', 'mcgregor mayweather fight', 'chester & chris cornell suicides', 'usher herpes scandal', 'cosby trial', 'o.j. simpson'])
-  .range(["pink", "gray", "orange", "green", "blue", "purple", "red", "black", "cyan", "yellow"]);
- 
-
+  .domain(['non profit', 'for profit', 'non profit under investigation', 'for profit under investigation'])
+  .range(["green", "orange" , "blue", 'red']);
   var tip = d3.tip()
       .attr("class", "d3-tip")
       .offset([-10, 0])
       .html(function(d) {
        console.log(d);
       //  return xCat + ": " + d[xCat] + "<br>" + yCat + ": " + d[yCat];
-     return d[myname]; 
+     return d[myname] + "<br>" + "Branches: " + d[mybranches] + "<br>" + d[colorCat]; 
      });
 
   var zoomBeh = d3.behavior.zoom()
@@ -155,7 +161,7 @@ d3.csv("/mycelebs.csv", function(data) {
       .scaleExtent([0, 500])
       .on("zoom", zoom);
 
-  var svg = d3.select("#scatter")
+  var svg = d3.select("#scatter1")
     .append("svg")
       .attr("width", outerWidth)
       .attr("height", outerHeight)
@@ -173,23 +179,23 @@ d3.csv("/mycelebs.csv", function(data) {
       .classed("x axis", true)
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis)
-    /*.append("text")
+    .append("text")
       .classed("label", true)
       .attr("x", width)
       .attr("y", margin.bottom -25)
       .style("text-anchor", "end")
-      .text(xCat);*/
+      .text(xCat1);
 
   svg.append("g")
       .classed("y axis", true)
       .call(yAxis)
-    /*.append("text")
+    .append("text")
       .classed("label", true)
       .attr("transform", "rotate(-90)")
       .attr("y", -margin.left)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text(yCat);*/
+      .text(yCat1);
 
   svg.append("g")
   .append("text")
@@ -197,7 +203,7 @@ d3.csv("/mycelebs.csv", function(data) {
     .attr("x", width / 2 )
     .attr("y", -10)
     .style("text-anchor", "middle")
-    .text("t-SNE dimensionality reduction plot");
+    .text("Tuition Revenue vs. Instructional Expenditure");
 
 
 
@@ -226,9 +232,9 @@ d3.csv("/mycelebs.csv", function(data) {
       .data(data)
     .enter().append("circle")
       .classed("dot", true)
-      .attr("r", function (d) { return 5; })
-      .style("fill", function(d) { return color(d[colorCat]); })
+      .attr("r", function (d) { return 6*Math.sqrt(d[rCat] / Math.PI); })
       .attr("transform", transform)
+      .style("fill", function(d) { return color(d[colorCat]); })
       .on("mouseover", tip.show)
       .on("mouseout", tip.hide);
 
@@ -248,7 +254,7 @@ d3.csv("/mycelebs.csv", function(data) {
       .attr("dy", ".59em")
       .text(function(d) { return d; });
 
-  /*d3.select("input").on("click", change);*/
+  d3.select("input").on("click", change);
 
   function zoom() {
     svg.select(".x.axis").call(xAxis);
@@ -259,7 +265,7 @@ d3.csv("/mycelebs.csv", function(data) {
   }
 
   function transform(d) {
-    return "translate(" + x(d[xCat]) + "," + y(d[yCat]) + ")";
+    return "translate(" + x(d[xCat1]) + "," + y(d[yCat1]) + ")";
   }
 });
 
