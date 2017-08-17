@@ -87,7 +87,7 @@ rect {
 <div id="scatter1"></div>
 
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script src="/d3.tip.v0.6.3.js"></script>
+<script src="/d3.tip.js"></script>
 
 <script>
 var margin = { top: 100, right: 250, bottom: 100, left: 100 },
