@@ -88,12 +88,12 @@ rect {
 <input type="button" name="xAxis" value="xAxis">
 
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script src="/d3.tip.v0.6.3.js"></script>
 
 <script>
 var margin = { top: 100, right: 250, bottom: 100, left: 100 },
-   outerWidth = 1000,
-   outerHeight = 800,
+   outerWidth = 900,
+   outerHeight = 700,
     width = outerWidth - margin.left - margin.right,
     height = outerHeight - margin.top - margin.bottom;
 
