@@ -32,12 +32,15 @@ Some characteristics of the t-SNE plot made intuitive sense. The blue Bachelor a
 You might be wondering which celebrity names appeared most frequently in TMZ articles in the summer of 2017. Well, you could visualize the frequency using a fancy D3 word cloud:
 
 
-<id = "wordcloud"></script>
 <meta charset="utf-8">
+
+<head>
 <script src="/d3.v2.js"></script>
 <script src="/d3.layout.cloud.js"></script>
 <script src="/gossip.js"></script>
-
+</head>
+<body>
+<id = "wordcloud"></script>
 <script>
   var fill = d3.scale.category20();
 
@@ -68,7 +71,7 @@ You might be wondering which celebrity names appeared most frequently in TMZ art
         .text(function(d) { return d.text; });
   }
 </script>
-
+</body>
 
 
 
