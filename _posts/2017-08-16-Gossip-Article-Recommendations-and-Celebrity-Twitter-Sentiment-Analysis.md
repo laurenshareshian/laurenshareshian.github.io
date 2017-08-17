@@ -138,6 +138,50 @@ d3.csv("/mycelebs.csv", function(data) {
   var color = d3.scale.ordinal()
   .domain(['rob & chyna', 'kim & kanye', 'justin bieber', 'trump', 'bachelor pool scandal', 'mcgregor mayweather fight', 'chester & chris cornell suicides', 'usher herpes scandal', 'cosby trial', 'o.j. simpson'])
   .range(["pink", "gray", "orange", "green", "blue", "purple", "red", "black", "cyan", "yellow"]);
+
+
+
+d3.tip = function() {
+  var direction = d3_tip_direction,
+      offset    = d3_tip_offset,
+      html      = d3_tip_html,
+      node      = initNode(),
+      svg       = null,
+      point     = null,
+      target    = null
+
+  function tip(vis) {
+    svg = getSVGNode(vis)
+    point = svg.createSVGPoint()
+    document.body.appendChild(node)
+  }
+
+  // Public - show the tooltip on the screen
+  //
+  // Returns a tip
+  tip.show = function() {
+    var args = Array.prototype.slice.call(arguments)
+    if(args[args.length - 1] instanceof SVGElement) target = args.pop()
+
+    var content = html.apply(this, args),
+        poffset = offset.apply(this, args),
+        dir     = direction.apply(this, args),
+        nodel   = d3.select(node), i = 0,
+        coords
+
+    nodel.html(content)
+      .style({ opacity: 1, 'pointer-events': 'all' })
+
+    while(i--) nodel.classed(directions[i], false)
+    coords = direction_callbacks.get(dir).apply(this)
+    nodel.classed(dir, true).style({
+      top: (coords.top +  poffset[0]) + 'px',
+      left: (coords.left + poffset[1]) + 'px'
+    })
+
+    return tip
+  }
+  
   var tip = d3.tip()
       .attr("class", "d3-tip")
       .offset([-10, 0])
