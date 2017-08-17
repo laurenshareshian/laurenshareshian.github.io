@@ -34,9 +34,9 @@ You might be wondering which celebrity names appeared most frequently in TMZ art
 
 <id = "wordcloud"></script>
 <meta charset="utf-8">
-<script src="d3.v2.js"></script>
-<script src="d3.layout.cloud.js"></script>
-<script src="gossip.js"></script>
+<script src="/d3.v2.js"></script>
+<script src="/d3.layout.cloud.js"></script>
+<script src="/gossip.js"></script>
 
 <script>
   var fill = d3.scale.category20();
