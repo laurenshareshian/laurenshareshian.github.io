@@ -499,7 +499,7 @@ d3.tip = function() {
       .data(data)
     .enter().append("circle")
       .classed("dot", true)
-      .attr("r", function (d) { return 6*Math.sqrt(d[rCat] / Math.PI); })
+      .attr("r", function (d) { return 5; })
       .attr("transform", transform)
       .style("fill", function(d) { return color(d[colorCat]); })
       .on("mouseover", tip.show)
