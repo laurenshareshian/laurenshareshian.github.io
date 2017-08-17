@@ -80,16 +80,17 @@ rect {
   top: 100%;
   left: 0;
 }
-
 </style>
 
 
 
 <div id="scatter1"></div>
-<script src="https://d3js.org/d3.v3.min.js"></script>
-<script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-<script>
+<input type="button" name="xAxis" value="xAxis">
 
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
+<script>
 var margin = { top: 100, right: 250, bottom: 100, left: 100 },
    outerWidth = 900,
    outerHeight = 700,
