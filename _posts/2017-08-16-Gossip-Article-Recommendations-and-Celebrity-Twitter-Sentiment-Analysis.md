@@ -32,28 +32,35 @@ Some characteristics of the t-SNE plot made intuitive sense. The blue Bachelor a
 You might be wondering which celebrity names appeared most frequently in TMZ articles in the summer of 2017. Well, you could visualize the frequency using a fancy D3 word cloud:
 
 
-<meta charset="utf-8">
 
-<head>
-<script src="/d3.v2.js"></script>
-<script src="/d3.layout.cloud.js"></script>
-<script src="/gossip.js"></script>
-</head>
-<body>
-<id = "wordcloud"></script>
+
+<html>
+  <head>
+    <script src="/d3.v2.js"></script>
+    <script src="/d3.layout.cloud.js"></script>
+    <script src="/gossip.js"></script>
+  </head>
+  <body>
+    <div id="chart"></div>
 <script>
-  var fill = d3.scale.category20();
 
-  d3.layout.cloud().size([700, 700])
+  var svg_location = "#chart";
+  var width = $(document).width();
+  var height = $(document).height();
+
+var fill = d3.scale.category20();
+
+d3.layout.cloud().size([700, 700])
       .words(gossip)
       .rotate(function() { return ~~(Math.random() * 2) * 90; })
       .font("Impact")
       .fontSize(function(d) { return d.size; })
       .on("end", draw)
+      .on("end", draw)
       .start();
 
-  function draw(words) {
-    d3.select("#wordcloud").append("svg")
+function draw(words) {
+    d3.select(svg_location).append("svg")
         .attr("width", 700)
         .attr("height", 700)
       .append("g")
@@ -70,9 +77,9 @@ You might be wondering which celebrity names appeared most frequently in TMZ art
         })
         .text(function(d) { return d.text; });
   }
-</script>
+  </script>
 </body>
-
+</html>
 
 
 Or, you could view it (my preferred) old-fashioned way, in a list:
