@@ -45,8 +45,7 @@ You might be wondering which celebrity names appeared most frequently in TMZ art
 <script>
 
   var svg_location = "#chart";
-  var width = $(document).width();
-  var height = $(document).height();
+
 
 var fill = d3.scale.category20();
 
