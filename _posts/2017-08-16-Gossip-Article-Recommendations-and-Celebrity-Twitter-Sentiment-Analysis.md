@@ -25,15 +25,72 @@ My third objective was to use unsupervised learning techniques to cluster articl
 
 
 My fourth objective was to visualize how close some of the hottest summer topics were to each other using a two dimensional t-SNE plot. Remember, I had 1,507 documents and after removing stopwords and words that appeared less than 10 times, I had a 1,507 x 1,640 doc-word matrix. Thus, the fact that the t-SNE algorithm allows dimensionality reduction that preserves distance but allows me to visualize things in a simple 2D plane is super cool! Below, you can use the D3 visualization to scroll through the articles corresponding to these 10 hot topics:
-<html>
-  <head>
-    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-    <link href="/favicon.ico" type="image/x-icon" rel="icon" />
-    <link rel="stylesheet" href="/scatter.css" charset="utf-8">
-  </head>
-  <body>
-    <div id="scatter"></div>
+
+<meta charset="utf-8">
+<style>
+
+rect {
+  fill: transparent;
+  shape-rendering: crispEdges;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.1);
+  shape-rendering: crispEdges;
+}
+
+.axisLine {
+  fill: none;
+  shape-rendering: crispEdges;
+  stroke: rgba(0, 0, 0, 0.5);
+  stroke-width: 2px;
+}
+
+.dot {
+  fill-opacity: .5;
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+</style>
+
+<div id="scatter"></div>
+
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<link href="/favicon.ico" type="image/x-icon" rel="icon" />
+
+
+    
 <script>
 var margin = { top: 100, right: 250, bottom: 100, left: 100 },
    outerWidth = 1000,
@@ -209,9 +266,8 @@ d3.csv("/mycelebs.csv", function(data) {
   }
 });
 
-    </script>
-  </body>
-</html>
+</script>
+
 
 Some characteristics of the t-SNE plot made intuitive sense. The blue Bachelor and black Usher points were near each other, probably as they both related to sex scandals. Similarly, the yellow O.J. Simpson and cyan Bill Cosby points were nearby, as they dealt with legal trials. However, I was surprised that the pink Rob Kardashian points weren't closer to the Kim Kardashian grey points, as they are relatives.
 
