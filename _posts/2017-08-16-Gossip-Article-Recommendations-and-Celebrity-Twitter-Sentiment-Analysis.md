@@ -4,30 +4,28 @@ Title: TMZ Article Recommendations and Celebrity Twitter Sentiment Analysis
 ---
 <img src="/images/mugshots.png" width="600"/> 
 
-I admit it, it's a major character flaw of mine, but I love celebrity gossip. TMZ, US Weekly, you name it, I gotta have it. So, for our Natural Language Processing unit, I wanted to explore all things celebrity gossip. 
+I admit it, it's a major character flaw, but I love celebrity gossip. TMZ, US Weekly, you name it, I gotta have it. So, for our Natural Language Processing unit, I wanted to explore all things celebrity gossip. My first objective was to find the hottest celebrity gossip topics of the summer. To do this, I scraped TMZ for all 1,507 articles between June 9th and August 9th. I first tried using Selenium to grab the articles, but after a whole night of scraping and only 500 articles downloaded (due to the crazy slow loading of TMZ pages with all of their advertisements and photos) I realized that curling all of the articles was the way to go. It took less than a minute! From there, I used BeautifulSoup to collect the relevant text.
 
-My first objective was to find the hottest celebrity gossip topics of the summer. To do this, I scraped TMZ for all 1,507 articles published between June 9th and August 9th, 2017. I first tried using Selenium to grab the articles, but after a whole night of scraping and only 500 articles downloaded (due to the crazy slow loading of TMZ pages with all of their advertisements and photos) I realized that curling all of the articles was the way to go. It took less than a minute! From there, I used BeautifulSoup to collect the relevant text.
+To pull out most popular topics, I made a sci-kit learn pipeline that implemented TFIDF vectorization (that also removed stop words and discarding numbers and punctuation), a Truncated SVD for dimensionality reduction, and normalization. Then ten most relevant topics are below. 
 
-To pull out the most popular topics, I made a sci-kit learn pipeline that implemented TFIDF vectorization (that automatically removed stop words and discarded numbers and punctuation), a Truncated SVD for dimensionality reduction, and normalization. The ten most prominent topics are below. 
+<img src="/images/hottopics.png" width="600"/> 
 
-<img src="/images/hottopics.png" width="500"/> 
-
-As you can see above, the first topic is rather nonsensical. I would have guessed that "says", "got", "told", and "just" were stop words that would have been removed by the sci-kit learn package, but apparently not. However, the next several topics are spot on. The scandalous Rob Kardashian - Blac Chyna breakup over her affair with Ferrari and the subsequent pics that got leaked were a hot topic. In addition, the Corrine-Demario Bachelor in Paradise pool scandal was big news. Of course, Justin Bieber canceling his tour because he found his purpose at church was another big headline. Notice that Chester appeared in three different topics. It makes sense that the suicide of Chester Bennington would appear in Topic 7 related his band, Linkin Park, and the suicide of his friend, Chris Cornell, but it was a bit puzzling that his name appeared in three different topics. 
+As you can see above, the first topic is rather nonsensical. I would have guessed that "says", "got", "told", and "just" were stop words that would have gotten removed by the sci-kit learn package, but apparently not. However, the next several topics are spot on. The scandalous Rob Kardashian - Blac Chyna breakup over her affair with Ferrari and the subsequent pics that got leaked were a hot topic. In addition, the Corrine-Demario Bachelor in Paradise pool scandal was big news. Of course, Justin Bieber canceling his tour because he found his purpose at church was another big headline. Notice that Chester appeared in three different topics. It makes sense that the suicide of Chester Bennington would appear in Topic 7 related his band, Linkin Park, and the suicide of his friend, Chris Cornell, but it was a bit puzzling that his name appeared in three different topics. 
 
 
-Okay. My second objective was to find articles similar to an article of interest in order to suggest recommendations to TMZ readers. To do this, I implemented Gensim's similarity matrix that measured cosine distance between vectors. Using this algorithm, I found that if you really liked [this article](http://www.tmz.com/2017/08/09/usher-jermaine-dupri-new-music-herpes-allegations/) on Usher's herpes scandal, for example, then you would most like these other articles:
+Okay. My second objective was to find articles similar to an article of interest in order to suggest to readers. To do this, I implemented Gensim's similarity matrix that measured cosine distance between vectors. Using this, if you really liked [this article](http://www.tmz.com/2017/08/09/usher-jermaine-dupri-new-music-herpes-allegations/) on Usher's herpes scandal, then you would most like these others:
 
-<img src="/images/similararticles.png" width="700"/> 
+<img src="/images/similararticles.png" width="600"/> 
 
-My third objective was to use unsupervised learning techniques to cluster articles. The algorithm DBSCAN chooses how many clusters to use. It chose 13, and so I also used 13 K-Means clusters for comparison. Hands down, K-Means was the superior clustering algorithm for this data set. You can see clear structure in the second picture:
+My third objective was using unsupervised learning techniques to cluster articles. The algorithm DBSCAN chooses how many clusters to use. It chose 13, and so I also used 13 K-Means clusters to compare. Hands down, K-Means was the superior clustering algorithm for this data set. You can see clear structure in the second picture:
 
-<img src="/images/dbscan.png" width="450"/> <img src="/images/kmeans.png" width="450"/> 
-
-
-My fourth objective was to visualize how close some of the hottest summer topics were to each other using a two dimensional t-SNE plot. Remember, I had 1,507 documents and after removing stopwords and words that appeared less than 10 times, I had a 1,507 x 1,640 doc-word matrix. Thus, the fact that the t-SNE algorithm allows dimensionality reduction that preserves distance but allows me to visualize things in a simple 2D plane is super cool! Below, you can use the D3 visualization to scroll through the articles corresponding to these 10 hot topics:
+<img src="/images/dbscan.png" width="350"/> <img src="/images/kmeans.png" width="350"/> 
 
 
-Some characteristics of the t-SNE plot made intuitive sense. The blue Bachelor and black Usher points were near each other, probably as they both related to sex scandals. Similarly, the yellow O.J. Simpson and cyan Bill Cosby points were nearby, as they dealt with legal trials. However, I was surprised that the pink Rob Kardashian points weren't closer to the Kim Kardashian grey points, as they were relatives.
+My fourth objective was visualizing how close some of the hottest summer topics were to each other in this two dimensional t-SNE plot. Remember, I had 1,507 documents and after removing stopwords and words that appeared less than 10 times, I had a 1,507 x 1,640 doc-word matrix. Thus, the fact that the t-SNE algorithm allows dimensionality reduction that preserves distance but allows me to visualize things in a simple 2D plane is super cool! Below, you can use the D3 visualization to scroll through the articles corresponding to these 10 hot topics:
+
+
+Some things about the t-SNE plot made intuitive sense. The blue Bachelor and black Usher points were near each other, probably as they both related to a sex scandal. Similarly, the yellow O.J. Simpson and cyan Bill Cosby points were nearby, as they dealt with trials. However, I was surprised that the pink Rob Kardashian points weren't closers to the Kim Kardashian grey points, as they were relatives.
 
 You might be wondering which celebrity names appeared the most in TMZ articles in the summer of 2017. Well, you could visualize the frequency using a fancy D3 word cloud:
 
@@ -277,24 +275,18 @@ d3.csv("/myschools.csv", function(data) {
 </script>
 
 
-Or, you could view it (my preferred) old-fashioned way, in a list:
+Or, you could visit (my preferred) old fashioned way, in a list:
 
-<img src="/images/frequent.png" width="100"/> 
+<img src="/images/frequent.png" width="600"/> 
 
-My last objective was to use scikit-learn's NLTK Vader library to do some sentiment analysis on the most popular [celebrity twitter accounts](http://friendorfollow.com/twitter/most-followers/). Out of all of the celebs listed, who was the most positive? Neil Patrick Harris, with an average sentiment score of 0.4254. 
+My last objective was using scikit-learn's NLTK Vader library to do some sentiment analysis on the most popular [celebrity twitter accounts](http://friendorfollow.com/twitter/most-followers/. Out of all of the celebs listed, who was the most positive? Neil Patrick Harris. His tweets are hilarious - they are all SOOOOOO upbeat that you kind of want to smack him:
 
-<img src="/images/neil.png" width="600"/> His tweets are hilarious - they are all SOOOOOO upbeat that you kind of want to smack him:
-
-<img src="/images/neiltweets.png" width="600"/> 
+<img src="/images/neil.png" width="600"/> 
 
 
-Who were the most negative celebrities? Chris Brown and Snoop Dogg. Chris Brown didn't surprise me, but Snoop Dogg sure did. He seems like a fun fellow. WHy did he only have an average sentiment score of 0.06?
+Who were the most negative celebrities? Chris Brown and Snoop Dogg. Chris Brown didn't surprise me, but Snoop Dogg sure did. He seems like a fun fellow. However, upon closer examination, the sentiment analyzer really doesn't pick up on his language subtleties. "This is the shit" is considered a bad thing:
 
 <img src="/images/snoop.png" width="600"/> 
-
-Well, upon closer examination, the sentiment analyzer really doesn't pick up on his language subtleties. "This is the shit" is considered a bad thing:
-
-<img src="/images/snooptweets.png" width="600"/> 
 
 
 
