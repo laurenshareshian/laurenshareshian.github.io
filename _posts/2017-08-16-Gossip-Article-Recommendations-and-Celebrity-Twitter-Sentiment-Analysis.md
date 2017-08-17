@@ -104,16 +104,13 @@ var y = d3.scale.linear()
     .range([height, 0]).nice();
 
 
-var xCat1 = "tuition revenue per fte";
-    yCat1 = "instructional expenditure per fte";
-    rCat = "branches";
-    myname = "schoolname";
-    colorCat = "type";
-    mybranches = "branches";
-    under_invest = "under investigation";
+var xCat = "x";
+    yCat = "y";
+    myname = "article";
+    colorCat = "celeb";
 
 
-d3.csv("/myschools.csv", function(data) {
+d3.csv("/mycelebs.csv", function(data) {
   data.forEach(function(d) {
    
    // d["faculty salary"] = +d["faculty salary"]
@@ -127,10 +124,8 @@ d3.csv("/myschools.csv", function(data) {
       yMin1 = d3.min(data, function(d) { return d[yCat1]; }),
       yMin1 = yMin1 > 0 ? 0 : yMin1;
 
-  x.domain([0, 20000]);
-  y.domain([0, 12000]);
-  //x.domain([0, 1]);
-  //y.domain([0, 1]);
+  x.domain([-25,25]);
+  y.domain([-25,25]);
 
   var xAxis = d3.svg.axis()
       .scale(x)
@@ -144,16 +139,17 @@ d3.csv("/myschools.csv", function(data) {
 
 
 //  var color = d3.scale.category10();
-  var color = d3.scale.ordinal()
-  .domain(['non profit', 'for profit', 'non profit under investigation', 'for profit under investigation'])
-  .range(["green", "orange" , "blue", 'red']);
+ var color = d3.scale.ordinal()
+  .domain(['rob & chyna', 'kim & kanye', 'justin bieber', 'trump', 'bachelor pool scandal', 'mcgregor mayweather fight', 'chester & chris cornell suicides', 'usher herpes scandal', 'cosby trial', 'o.j. simpson'])
+  .range(["pink", "gray", "orange", "green", "blue", "purple", "red", "black", "cyan", "yellow"]);
+ 
   var tip = d3.tip()
       .attr("class", "d3-tip")
       .offset([-10, 0])
       .html(function(d) {
        console.log(d);
       //  return xCat + ": " + d[xCat] + "<br>" + yCat + ": " + d[yCat];
-     return d[myname] + "<br>" + "Branches: " + d[mybranches] + "<br>" + d[colorCat]; 
+     return d[myname]; 
      });
 
   var zoomBeh = d3.behavior.zoom()
@@ -180,23 +176,23 @@ d3.csv("/myschools.csv", function(data) {
       .classed("x axis", true)
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis)
-    .append("text")
+    /*.append("text")
       .classed("label", true)
       .attr("x", width)
       .attr("y", margin.bottom -25)
       .style("text-anchor", "end")
-      .text(xCat1);
+      .text(xCat);*/
 
   svg.append("g")
       .classed("y axis", true)
       .call(yAxis)
-    .append("text")
+    /*.append("text")
       .classed("label", true)
       .attr("transform", "rotate(-90)")
       .attr("y", -margin.left)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text(yCat1);
+      .text(yCat);*/
 
   svg.append("g")
   .append("text")
@@ -204,7 +200,7 @@ d3.csv("/myschools.csv", function(data) {
     .attr("x", width / 2 )
     .attr("y", -10)
     .style("text-anchor", "middle")
-    .text("Tuition Revenue vs. Instructional Expenditure");
+    .text("t-SNE dimensionality reduction plot");
 
 
 
@@ -233,9 +229,9 @@ d3.csv("/myschools.csv", function(data) {
       .data(data)
     .enter().append("circle")
       .classed("dot", true)
-      .attr("r", function (d) { return 6*Math.sqrt(d[rCat] / Math.PI); })
-      .attr("transform", transform)
+      .attr("r", function (d) { return 5; })
       .style("fill", function(d) { return color(d[colorCat]); })
+      .attr("transform", transform)
       .on("mouseover", tip.show)
       .on("mouseout", tip.hide);
 
@@ -255,6 +251,7 @@ d3.csv("/myschools.csv", function(data) {
       .attr("dy", ".59em")
       .text(function(d) { return d; });
 
+  d3.select("input").on("click", change);
 
   function zoom() {
     svg.select(".x.axis").call(xAxis);
