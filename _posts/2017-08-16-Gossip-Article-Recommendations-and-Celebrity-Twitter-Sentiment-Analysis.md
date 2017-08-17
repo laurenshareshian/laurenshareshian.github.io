@@ -85,7 +85,6 @@ rect {
 
 
 <div id="scatter1"></div>
-<input type="button" name="xAxis" value="xAxis">
 
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="/d3.tip.v0.6.3.js"></script>
