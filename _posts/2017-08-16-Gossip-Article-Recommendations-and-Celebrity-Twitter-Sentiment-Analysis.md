@@ -103,33 +103,26 @@ var y = d3.scale.linear()
     .range([height, 0]).nice();
 
 
-var xCat1 = "tuition revenue per fte";
-    yCat1 = "instructional expenditure per fte";
-    rCat = "branches";
-    myname = "schoolname";
-    colorCat = "type";
-    mybranches = "branches";
-    under_invest = "under investigation";
+var xCat = "x";
+    yCat = "y";
+    myname = "article";
+    colorCat = "celeb";
 
 
-d3.csv("/myschools.csv", function(data) {
+d3.csv("/mycelebs.csv", function(data) {
   data.forEach(function(d) {
    
-   // d["faculty salary"] = +d["faculty salary"]
-    
 });
 
-  var xMax1 = d3.max(data, function(d) { return d[xCat1]; }) * 1.05,
-      xMin1 = d3.min(data, function(d) { return d[xCat1]; }),
+  var xMax1 = d3.max(data, function(d) { return d[xCat]; }) * 1.05,
+      xMin1 = d3.min(data, function(d) { return d[xCat]; }),
       xMin1 = xMin1 > 0 ? 0 : xMin1,
-      yMax1 = d3.max(data, function(d) { return d[yCat1]; }) * 1.05,
-      yMin1 = d3.min(data, function(d) { return d[yCat1]; }),
+      yMax1 = d3.max(data, function(d) { return d[yCat]; }) * 1.05,
+      yMin1 = d3.min(data, function(d) { return d[yCat]; }),
       yMin1 = yMin1 > 0 ? 0 : yMin1;
 
-  x.domain([0, 20000]);
-  y.domain([0, 12000]);
-  //x.domain([0, 1]);
-  //y.domain([0, 1]);
+  x.domain([-25,25]);
+  y.domain([-25,25]);
 
   var xAxis = d3.svg.axis()
       .scale(x)
@@ -144,8 +137,8 @@ d3.csv("/myschools.csv", function(data) {
 
 //  var color = d3.scale.category10();
   var color = d3.scale.ordinal()
-  .domain(['non profit', 'for profit', 'non profit under investigation', 'for profit under investigation'])
-  .range(["green", "orange" , "blue", 'red']);
+  .domain(['rob & chyna', 'kim & kanye', 'justin bieber', 'trump', 'bachelor pool scandal', 'mcgregor mayweather fight', 'chester & chris cornell suicides', 'usher herpes scandal', 'cosby trial', 'o.j. simpson'])
+  .range(["pink", "gray", "orange", "green", "blue", "purple", "red", "black", "cyan", "yellow"]);
 
 d3.tip = function() {
   var direction = d3_tip_direction,
@@ -419,14 +412,14 @@ d3.tip = function() {
 
   return tip
 };
-  
+
   var tip = d3.tip()
       .attr("class", "d3-tip")
       .offset([-10, 0])
       .html(function(d) {
        console.log(d);
       //  return xCat + ": " + d[xCat] + "<br>" + yCat + ": " + d[yCat];
-     return d[myname] + "<br>" + "Branches: " + d[mybranches] + "<br>" + d[colorCat]; 
+     d[myname]; 
      });
 
   var zoomBeh = d3.behavior.zoom()
@@ -458,7 +451,7 @@ d3.tip = function() {
       .attr("x", width)
       .attr("y", margin.bottom -25)
       .style("text-anchor", "end")
-      .text(xCat1);
+      .text(x);
 
   svg.append("g")
       .classed("y axis", true)
@@ -469,7 +462,7 @@ d3.tip = function() {
       .attr("y", -margin.left)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text(yCat1);
+      .text(y;
 
   svg.append("g")
   .append("text")
@@ -477,7 +470,7 @@ d3.tip = function() {
     .attr("x", width / 2 )
     .attr("y", -10)
     .style("text-anchor", "middle")
-    .text("Tuition Revenue vs. Instructional Expenditure");
+    .text("t-SNE dimensionality reduction plot");
 
 
 
@@ -539,7 +532,7 @@ d3.tip = function() {
   }
 
   function transform(d) {
-    return "translate(" + x(d[xCat1]) + "," + y(d[yCat1]) + ")";
+    return "translate(" + x(d[xCat]) + "," + y(d[yCat]) + ")";
   }
 });
 
