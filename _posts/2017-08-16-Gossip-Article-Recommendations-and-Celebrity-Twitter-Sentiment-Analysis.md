@@ -8,7 +8,7 @@ I admit it, it's a major character flaw of mine, but I love celebrity gossip. TM
 
 My first objective was to find the hottest celebrity gossip topics of the summer. To do this, I scraped TMZ for all 1,507 articles published between June 9th and August 9th, 2017. I first tried using Selenium to grab the articles, but after a whole night of scraping and only 500 articles downloaded (due to the crazy slow loading of TMZ pages with all of their advertisements and photos) I realized that curling all of the articles was the way to go. It took less than a minute! From there, I used BeautifulSoup to collect the relevant text.
 
-To pull out the most popular topics, I made a sci-kit learn pipeline that implemented TFIDF vectorization (that automatically removed stop words and discarded numbers and punctuation), a Truncated SVD for dimensionality reduction, and normalization. The ten most prominent topics are below. 
+To pull out the most popular topics, I made a sci-kit learn pipeline that implemented TFIDF vectorization (and  automatically removed stop words and discarded numbers and punctuation, too), a Truncated SVD for dimensionality reduction, and normalization. The ten most prominent topics are below. 
 
 <img src="/images/hottopics.png" width="500"/> 
 
@@ -27,9 +27,9 @@ My third objective was to use unsupervised learning techniques to cluster articl
 My fourth objective was to visualize how close some of the hottest summer topics were to each other using a two dimensional t-SNE plot. Remember, I had 1,507 documents and after removing stopwords and words that appeared less than 10 times, I had a 1,507 x 1,640 doc-word matrix. Thus, the fact that the t-SNE algorithm allows dimensionality reduction that preserves distance but allows me to visualize things in a simple 2D plane is super cool! Below, you can use the D3 visualization to scroll through the articles corresponding to these 10 hot topics:
 
 
-Some characteristics of the t-SNE plot made intuitive sense. The blue Bachelor and black Usher points were near each other, probably as they both related to sex scandals. Similarly, the yellow O.J. Simpson and cyan Bill Cosby points were nearby, as they dealt with legal trials. However, I was surprised that the pink Rob Kardashian points weren't closer to the Kim Kardashian grey points, as they were relatives.
+Some characteristics of the t-SNE plot made intuitive sense. The blue Bachelor and black Usher points were near each other, probably as they both related to sex scandals. Similarly, the yellow O.J. Simpson and cyan Bill Cosby points were nearby, as they dealt with legal trials. However, I was surprised that the pink Rob Kardashian points weren't closer to the Kim Kardashian grey points, as they are relatives.
 
-You might be wondering which celebrity names appeared the most in TMZ articles in the summer of 2017. Well, you could visualize the frequency using a fancy D3 word cloud:
+You might be wondering which celebrity names appeared most frequently in TMZ articles in the summer of 2017. Well, you could visualize the frequency using a fancy D3 word cloud:
 
 <meta charset="utf-8">
 <style>
@@ -279,7 +279,7 @@ d3.csv("/myschools.csv", function(data) {
 
 Or, you could view it (my preferred) old-fashioned way, in a list:
 
-<img src="/images/frequent.png" width="100"/> 
+<img src="/images/frequent.png" width="200"/> 
 
 My last objective was to use scikit-learn's NLTK Vader library to do some sentiment analysis on the most popular [celebrity twitter accounts](http://friendorfollow.com/twitter/most-followers/). Out of all of the celebs listed, who was the most positive? Neil Patrick Harris, with an average sentiment score of 0.4254. 
 
