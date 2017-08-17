@@ -255,7 +255,6 @@ d3.csv("/myschools.csv", function(data) {
       .attr("dy", ".59em")
       .text(function(d) { return d; });
 
-  d3.select("input").on("click", change);
 
   function zoom() {
     svg.select(".x.axis").call(xAxis);
