@@ -451,7 +451,7 @@ d3.tip = function() {
       .attr("x", width)
       .attr("y", margin.bottom -25)
       .style("text-anchor", "end")
-      .text(x);
+      .text(xCat);
 
   svg.append("g")
       .classed("y axis", true)
@@ -462,7 +462,7 @@ d3.tip = function() {
       .attr("y", -margin.left)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text(y);
+      .text(yCat);
 
   svg.append("g")
   .append("text")
