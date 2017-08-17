@@ -446,23 +446,23 @@ d3.tip = function() {
       .classed("x axis", true)
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis)
-    .append("text")
+ /*   .append("text")
       .classed("label", true)
       .attr("x", width)
       .attr("y", margin.bottom -25)
       .style("text-anchor", "end")
-      .text(xCat);
+      .text(xCat);*/
 
   svg.append("g")
       .classed("y axis", true)
       .call(yAxis)
-    .append("text")
+    /*.append("text")
       .classed("label", true)
       .attr("transform", "rotate(-90)")
       .attr("y", -margin.left)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text(yCat);
+      .text(yCat);*/
 
   svg.append("g")
   .append("text")
