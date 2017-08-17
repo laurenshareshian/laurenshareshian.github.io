@@ -284,10 +284,12 @@ Or, you could view it (my preferred) old-fashioned way, in a list:
 My last objective was to use scikit-learn's NLTK Vader library to do some sentiment analysis on the most popular [celebrity twitter accounts](http://friendorfollow.com/twitter/most-followers/). Out of all of the celebs listed, who was the most positive? Neil Patrick Harris, with an average sentiment score of 0.4254. 
 
 
-<img src="/images/neil.png" width="300"/> His tweets are hilarious - they are all SOOOOOO upbeat that you kind of want to smack him:
+<img src="/images/neil.png" width="200"/> 
+
+His tweets are hilarious - they are all SOOOOOO upbeat that you kind of want to smack him:
 
 
-<img src="/images/neiltweets.png" width="600"/> 
+<img src="/images/neiltweets.png" width="1000"/> 
 
 
 Who were the most negative celebrities? Chris Brown and Snoop Dogg. Chris Brown didn't surprise me, but Snoop Dogg sure did. He seems like a fun fellow. WHy did he only have an average sentiment score of 0.06?
