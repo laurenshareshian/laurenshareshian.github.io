@@ -80,12 +80,13 @@ rect {
   top: 100%;
   left: 0;
 }
+
 </style>
 
 
 
 <div id="scatter1"></div>
-<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 <script>
 
@@ -102,26 +103,33 @@ var y = d3.scale.linear()
     .range([height, 0]).nice();
 
 
-var xCat = "x";
-    yCat = "y";
-    myname = "article";
-    colorCat = "celeb";
+var xCat1 = "tuition revenue per fte";
+    yCat1 = "instructional expenditure per fte";
+    rCat = "branches";
+    myname = "schoolname";
+    colorCat = "type";
+    mybranches = "branches";
+    under_invest = "under investigation";
 
 
-d3.csv("/mycelebs.csv", function(data) {
+d3.csv("/myschools.csv", function(data) {
   data.forEach(function(d) {
    
+   // d["faculty salary"] = +d["faculty salary"]
+    
 });
 
-  var xMax = d3.max(data, function(d) { return d[xCat]; }) * 1.05,
-      xMin = d3.min(data, function(d) { return d[xCat]; }),
-      xMin = xMin > 0 ? 0 : xMin,
-      yMax = d3.max(data, function(d) { return d[yCat]; }) * 1.05,
-      yMin = d3.min(data, function(d) { return d[yCat]; }),
-      yMin = yMin > 0 ? 0 : yMin;
+  var xMax1 = d3.max(data, function(d) { return d[xCat1]; }) * 1.05,
+      xMin1 = d3.min(data, function(d) { return d[xCat1]; }),
+      xMin1 = xMin1 > 0 ? 0 : xMin1,
+      yMax1 = d3.max(data, function(d) { return d[yCat1]; }) * 1.05,
+      yMin1 = d3.min(data, function(d) { return d[yCat1]; }),
+      yMin1 = yMin1 > 0 ? 0 : yMin1;
 
-  x.domain([-25,25]);
-  y.domain([-25,25]);
+  x.domain([0, 20000]);
+  y.domain([0, 12000]);
+  //x.domain([0, 1]);
+  //y.domain([0, 1]);
 
   var xAxis = d3.svg.axis()
       .scale(x)
@@ -136,61 +144,16 @@ d3.csv("/mycelebs.csv", function(data) {
 
 //  var color = d3.scale.category10();
   var color = d3.scale.ordinal()
-  .domain(['rob & chyna', 'kim & kanye', 'justin bieber', 'trump', 'bachelor pool scandal', 'mcgregor mayweather fight', 'chester & chris cornell suicides', 'usher herpes scandal', 'cosby trial', 'o.j. simpson'])
-  .range(["pink", "gray", "orange", "green", "blue", "purple", "red", "black", "cyan", "yellow"]);
-
-
-
-d3.tip = function() {
-  var direction = d3_tip_direction,
-      offset    = d3_tip_offset,
-      html      = d3_tip_html,
-      node      = initNode(),
-      svg       = null,
-      point     = null,
-      target    = null
-
-  function tip(vis) {
-    svg = getSVGNode(vis)
-    point = svg.createSVGPoint()
-    document.body.appendChild(node)
-  }
-
-  // Public - show the tooltip on the screen
-  //
-  // Returns a tip
-  tip.show = function() {
-    var args = Array.prototype.slice.call(arguments)
-    if(args[args.length - 1] instanceof SVGElement) target = args.pop()
-
-    var content = html.apply(this, args),
-        poffset = offset.apply(this, args),
-        dir     = direction.apply(this, args),
-        nodel   = d3.select(node), i = 0,
-        coords
-
-    nodel.html(content)
-      .style({ opacity: 1, 'pointer-events': 'all' })
-
-    while(i--) nodel.classed(directions[i], false)
-    coords = direction_callbacks.get(dir).apply(this)
-    nodel.classed(dir, true).style({
-      top: (coords.top +  poffset[0]) + 'px',
-      left: (coords.left + poffset[1]) + 'px'
-    })
-
-    return tip
-  }
-  
+  .domain(['non profit', 'for profit', 'non profit under investigation', 'for profit under investigation'])
+  .range(["green", "orange" , "blue", 'red']);
   var tip = d3.tip()
       .attr("class", "d3-tip")
       .offset([-10, 0])
       .html(function(d) {
        console.log(d);
       //  return xCat + ": " + d[xCat] + "<br>" + yCat + ": " + d[yCat];
-     return d[myname]; 
+     return d[myname] + "<br>" + "Branches: " + d[mybranches] + "<br>" + d[colorCat]; 
      });
-
 
   var zoomBeh = d3.behavior.zoom()
       .x(x)
@@ -216,23 +179,23 @@ d3.tip = function() {
       .classed("x axis", true)
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis)
-    /*.append("text")
+    .append("text")
       .classed("label", true)
       .attr("x", width)
       .attr("y", margin.bottom -25)
       .style("text-anchor", "end")
-      .text(xCat);*/
+      .text(xCat1);
 
   svg.append("g")
       .classed("y axis", true)
       .call(yAxis)
-    /*.append("text")
+    .append("text")
       .classed("label", true)
       .attr("transform", "rotate(-90)")
       .attr("y", -margin.left)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text(yCat);*/
+      .text(yCat1);
 
   svg.append("g")
   .append("text")
@@ -240,7 +203,7 @@ d3.tip = function() {
     .attr("x", width / 2 )
     .attr("y", -10)
     .style("text-anchor", "middle")
-    .text("t-SNE dimensionality reduction plot");
+    .text("Tuition Revenue vs. Instructional Expenditure");
 
 
 
@@ -269,9 +232,9 @@ d3.tip = function() {
       .data(data)
     .enter().append("circle")
       .classed("dot", true)
-      .attr("r", function (d) { return 5; })
-      .style("fill", function(d) { return color(d[colorCat]); })
+      .attr("r", function (d) { return 6*Math.sqrt(d[rCat] / Math.PI); })
       .attr("transform", transform)
+      .style("fill", function(d) { return color(d[colorCat]); })
       .on("mouseover", tip.show)
       .on("mouseout", tip.hide);
 
@@ -302,16 +265,11 @@ d3.tip = function() {
   }
 
   function transform(d) {
-    return "translate(" + x(d[xCat]) + "," + y(d[yCat]) + ")";
+    return "translate(" + x(d[xCat1]) + "," + y(d[yCat1]) + ")";
   }
 });
 
-
-
-
 </script>
-
-
 Some characteristics of the t-SNE plot made intuitive sense. The blue Bachelor and black Usher points were near each other, probably as they both related to sex scandals. Similarly, the yellow O.J. Simpson and cyan Bill Cosby points were nearby, as they dealt with legal trials. However, I was surprised that the pink Rob Kardashian points weren't closer to the Kim Kardashian grey points, as they are relatives.
 
 You might be wondering which celebrity names appeared most frequently in TMZ articles in the summer of 2017. Well, you could visualize the frequency using a fancy D3 word cloud:
