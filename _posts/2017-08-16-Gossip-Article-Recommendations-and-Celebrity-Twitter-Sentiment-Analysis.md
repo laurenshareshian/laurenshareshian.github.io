@@ -462,7 +462,7 @@ d3.tip = function() {
       .attr("y", -margin.left)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text(y;
+      .text(y);
 
   svg.append("g")
   .append("text")
