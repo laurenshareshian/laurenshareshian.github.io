@@ -336,7 +336,7 @@ My last objective was to use scikit-learn's NLTK Vader library to do some sentim
 His tweets are hilarious - they are all SOOOOOO upbeat that you kind of want to smack him:
 
 
-<img src="/images/neiltweets.png" width="1600"/> 
+<img src="/images/neiltweets.png" width="1200"/> 
 
 
 Who were the most negative celebrities? Chris Brown and Snoop Dogg. Chris Brown didn't surprise me, but Snoop Dogg sure did. He seems like a fun fellow. WHy did he only have an average sentiment score of 0.06?
