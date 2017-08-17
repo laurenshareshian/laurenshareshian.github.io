@@ -283,16 +283,21 @@ Or, you could view it (my preferred) old-fashioned way, in a list:
 
 My last objective was to use scikit-learn's NLTK Vader library to do some sentiment analysis on the most popular [celebrity twitter accounts](http://friendorfollow.com/twitter/most-followers/). Out of all of the celebs listed, who was the most positive? Neil Patrick Harris, with an average sentiment score of 0.4254. 
 
-<img src="/images/neil.png" width="600"/> His tweets are hilarious - they are all SOOOOOO upbeat that you kind of want to smack him:
+
+<img src="/images/neil.png" width="150"/> His tweets are hilarious - they are all SOOOOOO upbeat that you kind of want to smack him:
+
 
 <img src="/images/neiltweets.png" width="600"/> 
 
 
 Who were the most negative celebrities? Chris Brown and Snoop Dogg. Chris Brown didn't surprise me, but Snoop Dogg sure did. He seems like a fun fellow. WHy did he only have an average sentiment score of 0.06?
 
-<img src="/images/snoop.png" width="600"/> 
+
+<img src="/images/snoop.png" width="150"/> 
+
 
 Well, upon closer examination, the sentiment analyzer really doesn't pick up on his language subtleties. "This is the shit" is considered a bad thing:
+
 
 <img src="/images/snooptweets.png" width="600"/> 
 
