@@ -92,8 +92,8 @@ rect {
 
 <script>
 var margin = { top: 100, right: 250, bottom: 100, left: 100 },
-   outerWidth = 900,
-   outerHeight = 700,
+   outerWidth = 1000,
+   outerHeight = 800,
     width = outerWidth - margin.left - margin.right,
     height = outerHeight - margin.top - margin.bottom;
 
@@ -110,19 +110,17 @@ var xCat = "x";
     colorCat = "celeb";
 
 
-d3.csv("/mycelebs.csv", function(data) {
+d3.csv("mycelebs.csv", function(data) {
   data.forEach(function(d) {
    
-   // d["faculty salary"] = +d["faculty salary"]
-    
 });
 
-  var xMax1 = d3.max(data, function(d) { return d[xCat1]; }) * 1.05,
-      xMin1 = d3.min(data, function(d) { return d[xCat1]; }),
-      xMin1 = xMin1 > 0 ? 0 : xMin1,
-      yMax1 = d3.max(data, function(d) { return d[yCat1]; }) * 1.05,
-      yMin1 = d3.min(data, function(d) { return d[yCat1]; }),
-      yMin1 = yMin1 > 0 ? 0 : yMin1;
+  var xMax = d3.max(data, function(d) { return d[xCat]; }) * 1.05,
+      xMin = d3.min(data, function(d) { return d[xCat]; }),
+      xMin = xMin > 0 ? 0 : xMin,
+      yMax = d3.max(data, function(d) { return d[yCat]; }) * 1.05,
+      yMin = d3.min(data, function(d) { return d[yCat]; }),
+      yMin = yMin > 0 ? 0 : yMin;
 
   x.domain([-25,25]);
   y.domain([-25,25]);
@@ -139,10 +137,11 @@ d3.csv("/mycelebs.csv", function(data) {
 
 
 //  var color = d3.scale.category10();
- var color = d3.scale.ordinal()
+  var color = d3.scale.ordinal()
   .domain(['rob & chyna', 'kim & kanye', 'justin bieber', 'trump', 'bachelor pool scandal', 'mcgregor mayweather fight', 'chester & chris cornell suicides', 'usher herpes scandal', 'cosby trial', 'o.j. simpson'])
   .range(["pink", "gray", "orange", "green", "blue", "purple", "red", "black", "cyan", "yellow"]);
  
+
   var tip = d3.tip()
       .attr("class", "d3-tip")
       .offset([-10, 0])
@@ -158,7 +157,7 @@ d3.csv("/mycelebs.csv", function(data) {
       .scaleExtent([0, 500])
       .on("zoom", zoom);
 
-  var svg = d3.select("#scatter1")
+  var svg = d3.select("#scatter")
     .append("svg")
       .attr("width", outerWidth)
       .attr("height", outerHeight)
@@ -262,9 +261,12 @@ d3.csv("/mycelebs.csv", function(data) {
   }
 
   function transform(d) {
-    return "translate(" + x(d[xCat1]) + "," + y(d[yCat1]) + ")";
+    return "translate(" + x(d[xCat]) + "," + y(d[yCat]) + ")";
   }
 });
+
+
+
 
 </script>
 
