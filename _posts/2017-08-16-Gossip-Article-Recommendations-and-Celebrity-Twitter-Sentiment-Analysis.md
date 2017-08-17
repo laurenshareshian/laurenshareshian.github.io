@@ -83,12 +83,9 @@ rect {
 
 </style>
 
-<div id="scatter"></div>
-
+<div id="scatter3"></div>
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-<link href="/favicon.ico" type="image/x-icon" rel="icon" />
-
 
     
 <script>
