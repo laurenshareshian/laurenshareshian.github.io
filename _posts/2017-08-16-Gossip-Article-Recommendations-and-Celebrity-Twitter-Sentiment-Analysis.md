@@ -110,7 +110,7 @@ var xCat = "x";
     colorCat = "celeb";
 
 
-d3.csv("mycelebs.csv", function(data) {
+d3.csv("/mycelebs.csv", function(data) {
   data.forEach(function(d) {
    
 });
