@@ -87,10 +87,8 @@ rect {
 <div id="scatter1"></div>
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-
-
-
 <script>
+
 var margin = { top: 100, right: 250, bottom: 100, left: 100 },
    outerWidth = 900,
    outerHeight = 700,
@@ -140,8 +138,6 @@ d3.csv("/mycelebs.csv", function(data) {
   var color = d3.scale.ordinal()
   .domain(['rob & chyna', 'kim & kanye', 'justin bieber', 'trump', 'bachelor pool scandal', 'mcgregor mayweather fight', 'chester & chris cornell suicides', 'usher herpes scandal', 'cosby trial', 'o.j. simpson'])
   .range(["pink", "gray", "orange", "green", "blue", "purple", "red", "black", "cyan", "yellow"]);
- 
-
   var tip = d3.tip()
       .attr("class", "d3-tip")
       .offset([-10, 0])
@@ -150,6 +146,7 @@ d3.csv("/mycelebs.csv", function(data) {
       //  return xCat + ": " + d[xCat] + "<br>" + yCat + ": " + d[yCat];
      return d[myname]; 
      });
+
 
   var zoomBeh = d3.behavior.zoom()
       .x(x)
