@@ -14,7 +14,7 @@ Obviously, neighborhood plays a large role. The West Hills (in red) are one of t
 
 I wanted to be able to predict prices on more granular level than neighborhood. For example, suppose the following houses were right next to each other. 
 
-<img src="/images/home1.png" width="300"/> <img src="/images/home2.png" width="300"/> 
+<img src="/images/home1.png" width="300"/> <img src="/images/home2.png" width="325"/> 
 
 These houses have the same square footage, were built the same year, are located on the exact same street. But, one has curb appeal and one clearly does not. How would Zillow or Redfin or anyone trying to predict home prices know this from the home's written specs alone? They wouldn't. That's why one of of the features that I wanted to incoporate into my model is an analysis of a front image of the home.
 
