@@ -5,7 +5,7 @@ Title: Incorporating Curb Appeal into Housing Price Estimates
 
 For my final project at Metis, I wanted to choose something that enabled me to incorporate all that I had learned during the past three months. Predicting Portland home prices allowed me to do this because I was able to incorporate various web scraping techniques, natural language processing on text, deep learning models on images, and gradient boosting into tackling the problem.
 
-Below you can see 8,300 single family home sales that I scraped in Portland, OR between 6/1/16 and 6/30/17:
+Below you can see 8,300 single family home sales that I scraped in Portland, OR between July 2016 - July 2017.
 
 
 <img src="/images/portland_sales.png" width="600"/> 
