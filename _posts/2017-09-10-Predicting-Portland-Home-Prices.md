@@ -3,18 +3,18 @@ layout: post
 Title: Incorporating Curb Appeal into Housing Price Estimates
 ---
 
-For my final project at Metis, I wanted to choose something that enabled me to incorporate all that I had learned in the past three months. Predicting Portland home prices allowed me to do this because I was able to incorporate various web scraping techniques, natural language processing on text, deep learning models on images, and gradient boosting.
+For my final project at Metis, I wanted to choose something that enabled me to incorporate all that I had learned during the past three months. Predicting Portland home prices allowed me to do this because I was able to incorporate various web scraping techniques, natural language processing on text, deep learning models on images, and gradient boosting into tackling the problem.
 
 Below you can see 8,300 single family home sales that I scraped in Portland, OR between 6/1/16 and 6/30/17:
 
 
 <img src="/images/portland_sales.png" width="600"/> 
 
-Obviously, neighborhood plays a large role. The west hills (in red) are one of the priciest areas in town, whereas East Portland is cheaper. The average sale price was $442 K.
+Obviously, neighborhood plays a large role. The West Hills (in red) are one of the priciest areas in town, whereas East Portland is cheaper. The average sale price was $442 K.
 
 I wanted to be able to predict prices on more granular level than neighborhood. For example, suppose the following houses were right next to each other. 
 
-<img src="/images/home1.png" width="450"/> <img src="/images/home2.png" width="450"/> 
+<img src="/images/home1.png" width="300"/> <img src="/images/home2.png" width="300"/> 
 
 These houses have the same square footage, were built the same year, are located on the exact same street. But, one has curb appeal and one clearly does not. How would Zillow or Redfin or anyone trying to predict home prices know this from the home's written specs alone? They wouldn't. That's why one of of the features that I wanted to incoporate into my model is an analysis of a front image of the home.
 
@@ -41,7 +41,7 @@ I suppose it was no surprise that the average positivity score for realtors was 
 
 <img src="/images/realtor2.png" width="600"/> 
 
-Finally, to incorporate the images into my model, I ran them through the VGG16 deep neural network for images in order to extract their features (which in turn became a 8300 x 25000 picture feature matrix):
+Finally, to incorporate the images into my model, I ran them through the VGG16 deep neural network for images in order to extract their features (which in turn became a 8300 x 25000 picture feature matrix). Running the model was pretty computationally intensive so I needed to install a g2.8xlarge GPU ubuntu instance on AWS.
 
 <img src="/images/vgg16.png" width="600"/> 
 
@@ -66,7 +66,4 @@ Not so fast, though. Perhaps you are wondering how well the Zillow metadata alon
 
 However, keep in mind that I am only using 8,300 photos, when the image feature matrix has 25,000 columns. I simply don't have enough data yet to support this model. If I scraped the web for anotehr month to get a lot more pictures, I am confident that incorporating the pictures into the model would help instead of hurt the prediction.
 
-In summary, I learned a ton doing this project and overcame several significant hurdles. The biggest hurdles I encountered were figuring out how to scrape Redfin images and how to work with the VGG16 model. I found the Keras documentation to still be pretty minimal and so it was a lot of trial and error in getting it to work. I'm really proud of myself for getting it to work - now I just need to get more data!
-
-<img src="/images/result2.png" width="600"/> 
-In summary, I had a blast doing this project. While the topic of celebrity gossip was rather silly, it was broad enough to allow me to investigate many different areas of Natural Language Processing, and in a context in which I already had intitution for what the results of the model should give me. You can find my GitHub repo for the project [here](https://github.com/laurenshareshian/Celebrity_NLP).
+In summary, I learned a ton doing this project and overcame several significant hurdles. The biggest hurdles I encountered were figuring out how to scrape Redfin images and how to work with the VGG16 model. I found the Keras documentation to still be pretty minimal and so it was a lot of trial and error in getting it to work. I'm really proud of myself for getting it to work - now I just need to get more data! You can find my GitHub repo for the project [here](https://github.com/laurenshareshian/home_price_estimator).
