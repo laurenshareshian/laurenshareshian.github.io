@@ -12,7 +12,7 @@ Below you can see 8,300 single family home sales that I scraped in Portland, OR 
 
 Obviously, neighborhood plays a large role. The West Hills (in red) are one of the priciest areas in town, whereas East Portland is cheaper. The average sale price was $442 K.
 
-I wanted to be able to predict prices on more granular level than neighborhood. For example, suppose the following houses were right next to each other. 
+I wanted to be able to predict prices on a more granular level than neighborhood. For example, suppose the following houses were right next to each other. 
 
 <img src="/images/home1.png" width="300"/> <img src="/images/home2.png" width="325"/> 
 
@@ -20,7 +20,7 @@ These houses have the same square footage, were built the same year, are located
 
 First things first, I needed to get all of the data. This proved to be more daunting than expected. First, I used the government API [Portland Maps](https://www.portlandmaps.com/development/) to scrape single family home sales in Portland. Unfortunately, the API had very small limits (about 150 calls per 10 minutes), so I had to leave the program running on an AWS server for quite a while to get all of the details. From there, I scraped the Zillow API for the metadata and realtor description of each home. Once again, this was slow-going, as Zillow only allows you to make 1000 API calls a day. (I recruited my husband, my mother, and a few friends to help me gain a few more API keys.)
 
-Lastly, the most difficult part of the data gathering process was obtaining the images. This was because Zillow has an API but Redfin doesn't, whereas Redfin leaves the images up after a house has sold whereas Redfin doesn't. In order to get the Redfin images, I set up a Selenium script to search the home's address on Google Images with the word "Redfin" at the end of the search entry, and then grabbed the first image URL that Google listed. 
+Lastly, the most difficult part of the data gathering process was obtaining the images. This was because Zillow has an API but Redfin doesn't, whereas Redfin leaves the images up after a house has sold whereas Zillow doesn't. In order to get the Redfin images, I set up a Selenium script to search the home's address on Google Images with the word "Redfin" at the end of the search entry, and then grabbed the first image URL that Google listed. 
 
 Unfortunately, once I had the image URLS, it still wasn't quite straightforward to actually download them. This was because Redfin does not allow you to use standard Python packages such as requests to get the data, nor does it let you curl it in an easy way. Luckily, after consulting with others, we came up with an idea - put 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6)...' at the end of the curl command to disguise your terminal request as a browser request. This finally did the trick and allowed me to get 8,300 homes with 8,300 corresponding images!
 
@@ -66,6 +66,6 @@ Not so fast, though. Perhaps you are wondering how well the Zillow metadata alon
 
 <img src="/images/result2.png" width="450"/> 
 
-However, keep in mind that I am only using 8,300 photos, when the image feature matrix has 25,000 columns. I simply don't have enough data yet to support this model. If I scraped the web for anotehr month to get a lot more pictures, I am confident that incorporating the pictures into the model would help instead of hurt the prediction.
+However, keep in mind that I am only using 8,300 photos, when the image feature matrix has 25,000 columns. I simply don't have enough data yet to support this model. If I scraped the web for another month to get a lot more pictures, I am confident that incorporating the pictures into the model would help instead of hurt the prediction.
 
 In summary, I learned a ton doing this project and overcame several significant hurdles. The biggest hurdles I encountered were figuring out how to scrape Redfin images and how to work with the VGG16 model. I found the Keras documentation to still be pretty minimal and so it was a lot of trial and error in getting it working. I'm really proud of myself for getting it to work - now I just need to get more data! You can find my GitHub repo for the project [here](https://github.com/laurenshareshian/home_price_estimator).
