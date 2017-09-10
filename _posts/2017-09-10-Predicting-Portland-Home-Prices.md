@@ -64,7 +64,7 @@ Okay, now that I was confident that my image model was doing a good job, I was r
 
 Not so fast, though. Perhaps you are wondering how well the Zillow metadata alone would do in predicting home prices? On average, it gives a $70 K error. Adding in realtor description drops that slightly to $69 K, but then adding in the pictures increases it to $71 K. In other words, the pictures right now are slightly hurting my model instead of helping it.
 
-<img src="/images/result2.png" width="600"/> 
+<img src="/images/result2.png" width="450"/> 
 
 However, keep in mind that I am only using 8,300 photos, when the image feature matrix has 25,000 columns. I simply don't have enough data yet to support this model. If I scraped the web for anotehr month to get a lot more pictures, I am confident that incorporating the pictures into the model would help instead of hurt the prediction.
 
