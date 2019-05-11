@@ -606,7 +606,7 @@ His tweets are hilarious - they are all SOOOOOO upbeat that you kind of want to 
 <img src="/images/neiltweets.png" width="1200"/> 
 
 
-Who were the most negative celebrities? Chris Brown and Snoop Dogg. Chris Brown didn't surprise me, but Snoop Dogg sure did. He seems like a fun fellow. WHy did he only have an average sentiment score of 0.06?
+Who were the most negative celebrities? Chris Brown and Snoop Dogg. Chris Brown didn't surprise me, but Snoop Dogg sure did. He seems like a fun fellow. Why did he only have an average sentiment score of 0.06?
 
 
 <img src="/images/snoop.png" width="200"/> 
