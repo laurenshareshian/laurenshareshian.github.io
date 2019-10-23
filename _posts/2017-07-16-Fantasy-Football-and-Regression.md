@@ -56,5 +56,5 @@ The previous year’s fantasy performance. I found the previous year’s fantasy
 In summary, by using ESPN’s rankings plus position, we improve upon ESPN’s point predictions by double. In order to improve the model further, I’d like to include injury information and perhaps utilize Twitter to measure how each player is trending. 
 
 
-For this project, I used BeautifulSoup and Pandas’ read_html function to scrape the web. I used skikit-learn to build a pipeline that performed normalization of features, polynomial regression, and cross validation. I also used the package Fuzzy Wuzzy to match names like “Robert Griffin” and “Robert Griffin III” in order to merge my datasets. You can find my GitHub repo for this project [here](https://github.com/laurenshareshian/Fantasy_Football_Regression_Analysis). 
+For this project, I used BeautifulSoup and Pandas’ read_html function to scrape the web. I used scikit-learn to build a pipeline that performed normalization of features, polynomial regression, and cross validation. I also used the package Fuzzy Wuzzy to match names like “Robert Griffin” and “Robert Griffin III” in order to merge my datasets. You can find my GitHub repo for this project [here](https://github.com/laurenshareshian/Fantasy_Football_Regression_Analysis). 
 
