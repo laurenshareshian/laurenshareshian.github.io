@@ -6,8 +6,12 @@ Title: Final Project Daily Log
 Below is a log of my daily progress, including:
 
 1.) What I worked on today
-2.) Any road blocks or questions that I need to get answered
-3.) What my goals are for tomorrow
+
+2.) What I learned
+
+3.) Any road blocks or questions that I need to get answered
+
+4.) What my goals are for tomorrow
 
 **January 7th**
 
